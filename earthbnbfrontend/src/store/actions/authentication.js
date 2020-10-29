@@ -16,13 +16,11 @@ export const loadToken = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-  console.log(baseUrl);
-  const response = await fetch(`${baseUrl}/session`, {
-    method: "put",
-    headers: { "Content-Type": "application/json" },
+  const response = await fetch(`${baseUrl}/users/token`, {
+    method: "POST",
     body: JSON.stringify({ email, password }),
+    headers: { "Content-Type": "application/json" },
   });
-
   if (response.ok) {
     const { token } = await response.json();
     window.localStorage.setItem(TOKEN_KEY, token);

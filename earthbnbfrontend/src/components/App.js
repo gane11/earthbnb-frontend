@@ -21,16 +21,16 @@ const App = ({needLogin, loadToken}) => {
   return(
     <BrowserRouter>
       <Switch>
-        {/* <PrivateRoute
+        <PrivateRoute
           path="/login"
           exact={true}
           component={LoginPanel}
-        /> */}
-        <PrivateRoute 
+        />
+        {/* <PrivateRoute 
           path="/sign-up"
           exact={true}
           component={SignUpPanel}
-        />
+        /> */}
         <PrivateRoute
           path='/'
           needLogin={needLogin}
