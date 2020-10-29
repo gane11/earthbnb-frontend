@@ -29,20 +29,20 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch, getState) => {
-  const {
-    authentication: { token },
-  } = getState();
-  const response = await fetch(`${baseUrl}/users`, {
-    method: "delete",
-    headers: { Authorization: `Bearer ${token}` },
-  });
+// export const logout = () => async (dispatch, getState) => {
+//   const {
+//     authentication: { token },
+//   } = getState();
+//   const response = await fetch(`${baseUrl}/users`, {
+//     method: "delete",
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
 
-  if (response.ok) {
-    window.localStorage.removeItem(TOKEN_KEY);
-    dispatch(removeToken());
-  }
-};
+//   if (response.ok) {
+//     window.localStorage.removeItem(TOKEN_KEY);
+//     dispatch(removeToken());
+//   }
+// };
 
 //sign-up
 
