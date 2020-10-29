@@ -8,7 +8,9 @@ import LoginPanel from './LoginPanel';
 import Home from './Home'
 import HomeDetail from './HomeDetail'
 import SignUpPanel from "./SignUpPanel"
-import MapTry from './MapTry'
+import Map from './Map'
+import LoginWithModal from './LoginWithModal'
+import SearchResult from './SearchResults'
 
 const App = ({needLogin, loadToken}) => {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +40,9 @@ const App = ({needLogin, loadToken}) => {
           needLogin={needLogin}
           component={Home}
         /> */}
+        <Route path="/search"
+        component={SearchResult}
+        />
         <Route path='/homes'
         component={Home}
         />
@@ -55,7 +60,7 @@ const App = ({needLogin, loadToken}) => {
         />
         <Route
           path='/map'
-          component={MapTry}
+          component={Map}
         />
       </Switch>
     </BrowserRouter>
