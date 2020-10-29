@@ -15,6 +15,7 @@ export const loadToken = () => async (dispatch) => {
   }
 };
 
+//sign in
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch(`${baseUrl}/users/token`, {
     method: "POST",
@@ -63,3 +64,20 @@ export const createUser = (data) => async (dispatch) => {
   console.log(error)
 }
 }
+
+//logout 
+
+export const logout = () => async (dispatch, getState) => {
+  const {
+    authentication: { token },
+  } = getState();
+  const response = await fetch(`${baseUrl}/users`, {
+    method: "delete",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (response.ok) {
+    window.localStorage.removeItem(TOKEN_KEY);
+    dispatch(removeToken());
+  }
+};
