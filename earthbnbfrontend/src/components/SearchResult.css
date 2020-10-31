@@ -1,4 +1,20 @@
+.search_container {
+    display: flex;
+}
+
+.search_results_container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.map_container {
+    position: fixed;
+    right:0;
+    padding-bottom: 10%;
+}
+
 .searchResult {
+    flex: 50%;
     display: flex;
     position: relative;
     margin: 20px;
@@ -11,13 +27,18 @@
     opacity: 0.8;
 }
 
-.searchResult > img {
-    height: 200px;
-    width: 350px;
+.searchResult > a {
+    height: 100px;
+    width: 400px;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
+.house_image {
+   height: 170px;
+    width: 300px; 
+    border-radius: 10px;
 
+}
 .searchResult__info {
     display: flex;
     flex-direction: column;

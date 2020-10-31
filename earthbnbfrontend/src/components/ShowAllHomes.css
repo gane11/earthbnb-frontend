@@ -1,0 +1,13 @@
+.show_homes_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content:flex-start;
+  justify-content: space-around;
+}
+
+.home__section {
+  display: flex;
+  flex-wrap: wrap;
+  align-content:flex-start;
+  padding: 30px;
+}

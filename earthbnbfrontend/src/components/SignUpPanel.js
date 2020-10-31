@@ -71,7 +71,7 @@ const LoginPanel = (props) => {
   }
 
   if (token) {
-    return <Redirect to="/" />
+    return <Redirect to="/header" />
   }
   return (
     <Container component="main" maxWidth="xs">

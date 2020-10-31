@@ -1,15 +1,17 @@
 import React, { useState, useEffect }  from 'react';
 // import './App.css';
-import { BrowserRouter, Switch, Redirect, Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 import {loadToken} from '../store/actions/authentication';
-import {ProtectedRoute, PrivateRoute} from '../util/route-util';
+// import {ProtectedRoute, PrivateRoute} from '../util/route-util';
 import { useSelector, useDispatch } from "react-redux";
 import LoginPanel from './LoginPanel';
 import Home from './Home'
 import HomeDetail from './HomeDetail'
 import SignUpPanel from "./SignUpPanel"
 import Map from './Map'
-import LoginWithModal from './LoginWithModal'
+// import LoginWithModal from './LoginWithModal'
+import Header from './Header'
+import ShowAllHomes from './ShowAllHomes'
 import SearchResult from './SearchResults'
 
 const App = ({needLogin, loadToken}) => {
@@ -61,6 +63,18 @@ const App = ({needLogin, loadToken}) => {
         <Route
           path='/map'
           component={Map}
+        />
+        <Route
+          path='/header'
+          component={Header}
+        />
+        <Route
+          path='/showall'
+          component={ShowAllHomes}
+        />
+        <Route 
+          path='/search-result'
+          component={SearchResult}
         />
       </Switch>
     </BrowserRouter>

@@ -53,7 +53,7 @@ const Map = ({ homes, getAllHomes }) => {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-export default function GoggleMap() {
+export default function GogleMap() {
   const homes = useSelector((state) => Object.values(state.homes))
   const dispatch = useDispatch()
   useEffect(() => {
@@ -72,3 +72,6 @@ export default function GoggleMap() {
     </div>
   )
 }
+
+
+

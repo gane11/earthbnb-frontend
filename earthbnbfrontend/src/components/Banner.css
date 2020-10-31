@@ -1,0 +1,19 @@
+.banner {
+  background: url(./images/background-main.jpg) center center;
+  max-width: 100%;
+  height: 500px;
+  position: relative;
+  background-size: cover;
+  border-radius: 25px;
+}
+
+.banner_info {
+  background-color: black;
+  color: white;
+  padding-top: 25vh;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 40px;
+  width: 300px;
+  border-radius: 25px;
+}
