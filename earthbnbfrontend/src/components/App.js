@@ -13,6 +13,7 @@ import Map from './Map'
 import Header from './Header'
 import ShowAllHomes from './ShowAllHomes'
 import SearchResult from './SearchResults'
+import HomeDetailContainer from './HomeDetail';
 
 const App = ({needLogin, loadToken}) => {
   const [loaded, setLoaded] = useState(false);
@@ -45,12 +46,11 @@ const App = ({needLogin, loadToken}) => {
         <Route path="/search"
         component={SearchResult}
         />
-        <Route path='/homes'
+        <Route exact path='/'
         component={Home}
         />
-        <Route 
-          path='/homes/:id'
-          component={HomeDetail}
+        <Route exact path='/homes/:id'
+          component={HomeDetailContainer}
         />
         <Route
           path='/login'
@@ -59,14 +59,6 @@ const App = ({needLogin, loadToken}) => {
         <Route
           path='/sign-up'
           component={SignUpPanel}
-        />
-        <Route
-          path='/map'
-          component={Map}
-        />
-        <Route
-          path='/header'
-          component={Header}
         />
         <Route
           path='/showall'

@@ -1,0 +1,9 @@
+.reservation_container {
+     grid-column: 3 / 4;
+    height: 335px;
+    position: sticky;
+    top: 30px;
+    border: 1px solid lightgray;
+    padding: 25px;
+     box-shadow: 10px
+}

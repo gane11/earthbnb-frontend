@@ -16,8 +16,6 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
     getAllHomes();
   }, [])
 
-  console.log(searchValue)
-
 
   return (
     <>
@@ -28,7 +26,7 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
         return (
         <div className='searchResult'>
           <Link to={`/homes/${home.id}`}>
-            <img src={image} className="house_image" />
+            <img src={home.image} className="house_image" />
           </Link>
         <FavoriteBorderIcon className="searchResult__heart" />
 
@@ -48,7 +46,7 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
               </p>
             </div>
           < div className='searchResults__price'>
-              <h2>{`${home.price} per night`}</h2>
+              <h2>{`$${home.price} per night`}</h2>
             </div>
           </div>
         </div>

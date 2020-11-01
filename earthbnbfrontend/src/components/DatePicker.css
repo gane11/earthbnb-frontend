@@ -1,8 +1,9 @@
 .search {
-    position: absolute;
+    position:absolute;
     top: 100px;
     left: 25%;
     width: 100vw;
+    z-index: 1000;
 }
 
 .search > p {

@@ -109,7 +109,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler}) => {
       </div>
       {token 
         ? <div className='header__right'> 
-          <p>Welcome</p>
+          <p className="welcome_letters">Welcome</p>
           <Button variant="contained" color="secondary"
             onClick={logOutButtonHandler}
           >LogOut</Button>
