@@ -10,7 +10,7 @@ const Card = ({home}) => {
       <img src={home.image} alt=""></img>
       <div className="card__info">
         <h2>{home.name}</h2>
-        <h4>{home.description}</h4>
+        {/* <h4>{home.description}</h4> */}
         <h3>{`$${home.price}`}</h3>
       </div>
     </div>

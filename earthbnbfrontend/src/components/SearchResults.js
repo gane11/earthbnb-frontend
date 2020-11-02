@@ -35,7 +35,8 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
            <p>{home.city}</p>
             <h3>{home.name}</h3>
             <p>____</p>
-            <p>{home.description}</p>
+            <p>8 guests , 4 bedrroms , 4 baths </p>
+            <p>Pool , Self check-in , Gym </p>
           </div>
 
           <div className="searchResult__infoBottom">

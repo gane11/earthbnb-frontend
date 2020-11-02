@@ -3,11 +3,12 @@ import homes from './reducers/homes'
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import thunk from 'redux-thunk';
 import currentHome from './reducers/currentHome'
+import reviews from './reducers/reviews'
 
 
 const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const reducer = combineReducers({ authentication, homes, currentHome});
+const reducer = combineReducers({ authentication, homes, currentHome, reviews});
 
 const configureStore = (initialState) => {
   return createStore(

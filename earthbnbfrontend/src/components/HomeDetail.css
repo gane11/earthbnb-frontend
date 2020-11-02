@@ -9,11 +9,21 @@
 /* .home_image {
     transition: transform 100ms ease-in;
   cursor: pointer;
-}
-
+} */
+/* 
 .home_image:hover {
-   transform: scale(1.07);
-}  */
+  transform: scale(1.2);
+}   */
+
+.reservation_box_container {
+      grid-column: 3 / 4;
+    height: 335px;
+    position: sticky;
+    top: 30px;
+    padding: 25px;
+     box-shadow: 10px;
+    border-radius: 15px;
+}
 
 .full_line {
   border-bottom: solid 3px rgba(146, 146, 146, 0.527);

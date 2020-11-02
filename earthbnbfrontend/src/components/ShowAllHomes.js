@@ -2,12 +2,8 @@
 import React, { useEffect } from 'react'
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, Switch } from 'react-router-dom';
-// import HomeDetail from './HomeDetail'
+import { useParams } from 'react-router-dom';
 import Card from './Card'
-// import CardHeader from '@material-ui/core/CardHeader';
-// import CardMedia from '@material-ui/core/CardMedia';
-// import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import './ShowAllHomes.css'
 

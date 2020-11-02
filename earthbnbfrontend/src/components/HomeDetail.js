@@ -8,11 +8,10 @@ import Footer from './Footer'
 import Map from './Map'
 import './HomeDetail.css'
 import Reservations from './Reservations'
-
 import GridListTile from '@material-ui/core/GridListTile';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
-
+import Reviews from './Reviews'
 
 //material ui
 const useStyles = makeStyles((theme) => ({
@@ -58,10 +57,10 @@ const HomeDetail = ({home, getOneHome}) => {
     <p>{`${home.city}, ${home.state}`}</p>
       <div className={classes.root}>
         <GridList cellHeight={400} className={classes.gridList} cols={3}>
-          <GridListTile key={1} className="home-image">
-              <img src={home.image} alt={home.name}/>
+          <GridListTile key={1} >
+            <img src={home.image} alt={home.name} className="home-image"/>
             </GridListTile>
-          <GridListTile key={2} className="home_image">
+          <GridListTile key={2}>
               <img src={home.image2} alt={home.name} className="home_image"/>
             </GridListTile>
           <GridListTile key={3} className="home_image">
@@ -81,10 +80,11 @@ const HomeDetail = ({home, getOneHome}) => {
         <div>
             <h1>{`Entire condominium hosted by ${home.hostId}`}</h1>
           <div className="full_line"></div>
+          <h3>Description:</h3>
           <p>{home.description}</p>
-            <li id="map">
-              <b>MAP</b>{}
-            </li>
+          <div className="full_line"></div>
+          <h3>Reviews:</h3>
+          <Reviews />
         </div>
       </div>
     </div>
