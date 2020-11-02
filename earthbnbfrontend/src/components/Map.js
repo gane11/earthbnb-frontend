@@ -4,6 +4,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
 // home
+//home2
 
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
