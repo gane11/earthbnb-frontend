@@ -10,6 +10,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { fade, makeStyles } from '@material-ui/core/styles';
+import alexLogo from './images/alexbnblogo.png'
 // import {
 //   MuiPickersUtilsProvider,
 //   KeyboardDatePicker,
@@ -83,7 +84,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler}) => {
       <Link to='/'>
         <img
           className="header__icon"
-          src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
+          src={alexLogo}
           alt=""
         />
       </Link>
