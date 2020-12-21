@@ -30,7 +30,7 @@ const DatePicker = ({searchValue}) => {
       <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
       <p>Number of guests <PeopleIcon /></p>
       <input min={0} defaultValue={2} type="number" />
-      <Button onClick={() => history.push('/search-result')}>Search Alexbnb</Button>
+      <Button onClick={() => history.push(`/search-result/${searchValue}`)}>Search Alexbnb</Button>
     </div>
   )
 }

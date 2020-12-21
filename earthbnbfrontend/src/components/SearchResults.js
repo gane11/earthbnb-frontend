@@ -12,17 +12,19 @@ import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
 
 const SearchResult = ({home, getAllHomes, searchValue}) =>{
+  const { searchValue } = useParams()
   useEffect(() => {
     getAllHomes();
   }, [])
 
-
+  
   return (
     <>
     <Header />
       <div className="search_container">
       <div className="search_results_container">
         {home.map((home) => {
+          if(home.city === searchValue) {
         return (
         <div className='searchResult'>
           <Link to={`/homes/${home.id}`}>
@@ -52,10 +54,10 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
           </div>
         </div>
        </div>)
-      })}
+}})}
         </div>
         <div className='map_container' >
-          <Map />
+          <Map searchValue={searchValue}/>
         </div>
       </div>
    <Footer />

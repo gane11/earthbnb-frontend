@@ -168,3 +168,126 @@ const UploadAlbum = ({ user }) => {
 
 
 export default UploadAlbum;
+
+
+
+
+
+
+
+
+
+
+
+
+////navbar vertugo 
+
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import LogoutButton from './auth/LogoutButton';
+import { useSelector } from 'react-redux';
+
+
+///material UI
+
+import InputBase from '@material-ui/core/InputBase';
+// import { Avatar } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import vertugologo from './images/alexbnblogo.png'
+
+const useStyles = makeStyles((theme) => ({
+
+    search: {
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: 0,
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: theme.spacing(3),
+            width: 'auto',
+        },
+    },
+    searchIcon: {
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '20ch',
+        },
+    },
+}));
+
+
+//material UI
+
+const NavBar = ({ setAuthenticated, user }) => {
+    const [searchValue, setSearchValue] = useState('')
+
+    const updateSearch = (e) => {
+        setSearchValue(e.target.value)
+    }
+
+    return (
+        <nav className="navbar">
+            <div className="navbar__contents">
+                <NavLink to="/" exact={true} activeClassName="active">
+                    <div className="navbar__logo">
+                        <div className="navbar__logo-image"></div>
+                        <div className="navbar__logo-title">Busker</div>
+                    </div>
+                </NavLink>
+                <ul className="navbar__links">
+                    <li>
+                        {user.id ? (
+                            <LogoutButton setAuthenticated={setAuthenticated} />
+                        ) : (
+                                <li>
+                                    <NavLink to="/login" exact={true} activeClassName="active">
+                                        Login
+            </NavLink>
+                                    <NavLink to="/sign-up" exact={true} activeClassName="active">
+                                        Sign Up
+            </NavLink>
+                                </li>
+                            )}
+                    </li>
+                    <li>
+                        <NavLink to="/users" exact={true} activeClassName="active">
+                            Users
+          </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    );
+}
+
+const NavBarContainer = ({ setAuthenticated }) => {
+    const user = useSelector(state => state.user)
+    return (
+        <NavBar setAuthenticated={setAuthenticated} user={user} />
+    )
+}
+
+export default NavBarContainer;

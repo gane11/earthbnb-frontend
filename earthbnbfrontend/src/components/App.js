@@ -65,7 +65,7 @@ const App = ({needLogin, loadToken}) => {
           component={ShowAllHomes}
         />
         <Route 
-          path='/search-result'
+          path='/search-result/:searchValue'
           component={SearchResult}
         />
       </Switch>

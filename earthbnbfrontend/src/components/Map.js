@@ -9,8 +9,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
-const Map = ({ homes, getAllHomes }) => {
+const Map = ({ homes, getAllHomes, searchValue }) => {
+  let newLat 
+  let newLng
   const [selectedHome, setSelectedHome] = useState(null)
+  if(searchValue.toLowerCase() === 'miami') {
+    newLat = 25.783912;
+    newLng = -80.160915;
+  }
+  if (searchValue.toLowerCase() === 'new york') {
+    newLat = 40.758896
+    newLng = -73.985130
+  }
   return (
     ///html
     <GoogleMap
@@ -18,6 +28,7 @@ const Map = ({ homes, getAllHomes }) => {
       defaultCenter={{ lat: 25.783912, lng: -80.160915 }}
     >
       {homes.map((home) => {
+        if(home.city === searchValue) {
         return (
         <Marker
           key={home.id}
@@ -30,7 +41,7 @@ const Map = ({ homes, getAllHomes }) => {
             setSelectedHome(home)
           }}
         />
-      )})}
+        )}})}
       {selectedHome && (
       <InfoWindow
         position={{
@@ -54,7 +65,7 @@ const Map = ({ homes, getAllHomes }) => {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-export default function GogleMap() {
+export default function GogleMap({searchValue}) {
   const homes = useSelector((state) => Object.values(state.homes))
   const dispatch = useDispatch()
   useEffect(() => {
@@ -63,6 +74,7 @@ export default function GogleMap() {
   return (
     <div style={{ width: '50vw', height: '100vh' }}>
       <WrappedMap
+        searchValue={searchValue}
         homes={homes}
         getAllHomes={() => dispatch(getAllHomes())}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleKey}&callback=initMap`}
