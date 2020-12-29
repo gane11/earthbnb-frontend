@@ -32,12 +32,12 @@ export default function Footer() {
         </Box>
         <Box p={1} flexShrink={1} bgcolor="grey.50">
           <a href="https://www.linkedin.com/in/aleksandar-dordevic-418a39b5/">
-            <LinkedInIcon />
+            <LinkedInIcon fontSize="large"/>
           </a>
         </Box>
         <Box p={1} flexShrink={0} bgcolor="grey.50">
           <a href="https://github.com/gane11">
-             <GitHubIcon />
+            <GitHubIcon fontSize="large"/>
            </a>
         </Box>
       </Box>
