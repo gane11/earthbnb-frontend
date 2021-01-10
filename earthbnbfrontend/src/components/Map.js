@@ -3,17 +3,18 @@ import React, { useState , useEffect} from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
-// home
-//home2
+import { useHistory, useParams } from 'react-router-dom';
 
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
-const Map = ({ homes, getAllHomes, searchValue }) => {
+const Map = ({ homes, getAllHomes }) => {
+  const { searchValue } = useParams()
   let newLat 
   let newLng
+  console.log(searchValue)
   const [selectedHome, setSelectedHome] = useState(null)
-  if(searchValue.toLowerCase() === 'miami') {
+  if(searchValue.toLowerCase() === 'miami beach') {
     newLat = 25.783912;
     newLng = -80.160915;
   }
@@ -25,10 +26,10 @@ const Map = ({ homes, getAllHomes, searchValue }) => {
     ///html
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={{ lat: 25.783912, lng: -80.160915 }}
+      defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
-        if(home.city === searchValue) {
+        // if(home.city === searchValue) {
         return (
         <Marker
           key={home.id}
@@ -41,7 +42,7 @@ const Map = ({ homes, getAllHomes, searchValue }) => {
             setSelectedHome(home)
           }}
         />
-        )}})}
+        )})}
       {selectedHome && (
       <InfoWindow
         position={{

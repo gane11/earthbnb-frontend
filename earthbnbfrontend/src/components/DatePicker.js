@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 const DatePicker = ({searchValue, datePicker}) => {
   const history = useHistory();
-  console.log(datePicker)
+
   const [showDatePicker, setShowDatePicker] = useState(datePicker)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
