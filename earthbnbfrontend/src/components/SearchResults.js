@@ -7,15 +7,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import Map from './Map'
 import Header from './Header'
 import Footer from './Footer'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
 
-const SearchResult = ({home, getAllHomes, searchValue}) =>{
+const SearchResult = ({home, getAllHomes}) =>{
   const { searchValue } = useParams()
   useEffect(() => {
     getAllHomes();
   }, [])
+
+
+//   if (searchValue.toLowerCase() !== 'miami beach' || searchValue.toLowerCase() !== 'new york') {
+//         return (
+//             <>
+//             <h1>Sorry not there yet, try Miami , San Francisco , Los Angeles or Austin !</h1>
+//             </>
+//         )
+
+// }
+
 
   
   return (
@@ -24,7 +35,8 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
       <div className="search_container">
       <div className="search_results_container">
         {home.map((home) => {
-          if(home.city === searchValue) {
+          console.log(home.city.toLowerCase())
+          if(home.city.toLowerCase() === searchValue.toLowerCase()) {
         return (
         <div className='searchResult'>
           <Link to={`/homes/${home.id}`}>
@@ -67,13 +79,13 @@ const SearchResult = ({home, getAllHomes, searchValue}) =>{
 
 const SerachResultContainer = () => {
   const home = useSelector((state) => Object.values(state.homes))
-  const searchValue = useSelector((state) => state.searchValue)
+  // const searchValue = useSelector((state) => state.searchValue)
   const dispatch = useDispatch()
   return (
     <SearchResult
       home={home}
       getAllHomes={() => dispatch(getAllHomes())}
-      searchValue={searchValue}
+      // searchValue={searchValue}
     />
   )
 }

@@ -102,7 +102,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler}) => {
           />
         </div>
         <div className="date_picker">
-          {showDatePicker && <DatePicker searchValue={searchValue}/>}
+          {showDatePicker && <DatePicker searchValue={searchValue} datePicker={showDatePicker}/>}
           <Button color="secondary"
           onClick={() =>setShowDatePicker(!showDatePicker)}
           >Choose Date</Button>
