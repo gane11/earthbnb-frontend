@@ -12,20 +12,23 @@ const Map = ({ homes, getAllHomes }) => {
   const { searchValue } = useParams()
   let newLat 
   let newLng
-  console.log(searchValue)
   const [selectedHome, setSelectedHome] = useState(null)
   if(searchValue.toLowerCase() === 'miami beach') {
-    newLat = 25.783912;
-    newLng = -80.160915;
+    newLat = homes[0].lat
+      // 25.783912;
+    newLng = homes[0].lng
+      // -80.160915;
   }
   if (searchValue.toLowerCase() === 'new york') {
-    newLat = 40.758896
-    newLng = -73.985130
+    newLat = homes[5].lat
+    // 40.758896
+    newLng = homes[5].lng
+      // - 73.985130
   }
   return (
     ///html
     <GoogleMap
-      defaultZoom={13}
+      defaultZoom={15}
       defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
