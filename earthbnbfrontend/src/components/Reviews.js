@@ -10,7 +10,6 @@ const Reviews = ({getAllReviews,reviews }) => {
   }, [id])
   const homeId = Number.parseInt(id);
 
-  console.log(reviews)
 
   if(!reviews) return null
   return (

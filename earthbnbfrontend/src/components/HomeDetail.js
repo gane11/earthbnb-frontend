@@ -78,7 +78,7 @@ const HomeDetail = ({home, getOneHome}) => {
       <div className="home_detail">
        <div className="home-detail-list">
         <div>
-            <h1>{`Entire condominium hosted by ${home.hostId}`}</h1>
+            <h1>{`Entire place hosted by ${home.hostId}`}</h1>
           <div className="full_line"></div>
           <h3>Description:</h3>
           <p>{home.description}</p>

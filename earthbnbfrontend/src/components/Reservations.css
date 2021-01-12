@@ -1,7 +1,7 @@
 .reservation_container {
      border-radius: 2rem;
      grid-column: 3 / 4;
-    height: 20rem;
+    height: 22rem;
     width: 20rem;
     position: sticky;
     margin-top: 2rem;

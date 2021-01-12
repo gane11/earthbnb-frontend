@@ -6,10 +6,22 @@ const Reservations = ({home}) =>{
 
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
+  const [homePrice, setHomePrice] = useState(home.price)
   const [numGuests, setNumGuests] = useState(2)
 
   const updateProperty = (callback) => (e) => {
     callback(e.target.value)
+
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+
+    const firstDate = new Date(2008, 1, 12);
+    
+
+    console.log(checkIn , firstDate)
+    const diffDays = Math.round(Math.abs((checkIn - checkOut) / oneDay));
+    setHomePrice(diffDays)
+
+
   }
   const submitHandler = (e) => {
     e.preventDefault();
@@ -39,7 +51,7 @@ const Reservations = ({home}) =>{
           <option value="num_1">4</option>
           <option value="num_1">5</option>
         </select>
-        <p></p>
+        <p>{homePrice}</p>
         <Button type="submit" variant="contained" color="secondary"
         >Check avaliability</Button>
       </form>
