@@ -1,7 +1,10 @@
 .reservation_container {
+    display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
      border-radius: 2rem;
      grid-column: 3 / 4;
-    height: 22rem;
+    height: 24rem;
     width: 20rem;
     position: sticky;
     margin-top: 2rem;
@@ -11,3 +14,5 @@
     padding-bottom: 2rem;
     box-shadow: 0.3rem 0.3rem #888888;
 }
+
+
