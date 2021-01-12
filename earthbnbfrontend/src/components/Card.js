@@ -9,9 +9,9 @@ const Card = ({home}) => {
     <div className="card"> 
       <img src={home.image} alt=""></img>
       <div className="card__info">
-        <h2>{home.name}</h2>
+        <h2 className='home-detail__link'>{home.name}</h2>
         {/* <h4>{home.description}</h4> */}
-        <h3>{`$${home.price}`}</h3>
+        <h3 className='home-detail__link'>{`$${home.price}`}</h3>
       </div>
     </div>
     </NavLink>

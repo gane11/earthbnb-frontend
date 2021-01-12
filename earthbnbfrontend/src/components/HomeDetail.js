@@ -5,13 +5,13 @@ import {getOneHome} from "../store/actions/currentHome"
 // import image from './images/miami-mansion-1.jpg'
 import Header from './Header'
 import Footer from './Footer'
-import Map from './Map'
 import './HomeDetail.css'
 import Reservations from './Reservations'
 import GridListTile from '@material-ui/core/GridListTile';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import Reviews from './Reviews'
+import Map from './HomeDetailMap'
 
 //material ui
 const useStyles = makeStyles((theme) => ({
@@ -91,6 +91,9 @@ const HomeDetail = ({home, getOneHome}) => {
     <div className="reservation_box_container">
       <Reservations home={home}/>
     </div>
+  </div>
+  <div>
+    <Map newLat={home.lat} newLng={home.lng}/>
   </div>
 <Footer />
 </>

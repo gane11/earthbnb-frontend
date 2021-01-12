@@ -3,8 +3,8 @@ import React, { useState , useEffect} from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
-
+import { useParams, NavLink } from 'react-router-dom';
+import './Map.css'
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
@@ -28,7 +28,7 @@ const Map = ({ homes, getAllHomes }) => {
   return (
     ///html
     <GoogleMap
-      defaultZoom={15}
+      defaultZoom={14}
       defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
@@ -57,8 +57,10 @@ const Map = ({ homes, getAllHomes }) => {
         }}
       >
         <div>
+            <img className='map__image'src={selectedHome.image} alt=""></img>
+  
           <h2>{selectedHome.name}</h2>
-          <p>{selectedHome.description}</p>
+          <p>$ {selectedHome.price}</p>
         </div>
       </InfoWindow>
     )}

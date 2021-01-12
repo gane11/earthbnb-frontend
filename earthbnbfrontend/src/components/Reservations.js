@@ -37,6 +37,7 @@ const Reservations = ({home}) =>{
           <option value="num_1">2</option>
           <option value="num_1">3</option>
           <option value="num_1">4</option>
+          <option value="num_1">5</option>
         </select>
         <p></p>
         <Button type="submit" variant="contained" color="secondary"
