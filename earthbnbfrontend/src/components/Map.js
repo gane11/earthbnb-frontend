@@ -92,24 +92,3 @@ export default function GogleMap({searchValue}) {
   )
 }
 
-
-
-function fizzBuzz(n) {
-  let num = 1
-  while (num <= n) {
-    if (num % 3 === 0 && num % 5 === 0) {
-      return 'FizzBuzz'
-    }
-    if (num % 3 === 0) {
-      return 'Fizz'
-    }
-    if (num % 5 === 0) {
-      return 'Buzz'
-    } else {
-      return num
-    }
-    num++
-  }
-}
-
-console.log(fizzBuzz(15))

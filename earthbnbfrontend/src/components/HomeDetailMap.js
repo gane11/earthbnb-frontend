@@ -1,14 +1,16 @@
 
-import React, { useState, useEffect } from 'react'
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps"
+import React from 'react'
+import { GoogleMap, withScriptjs, withGoogleMap, Marker} from "react-google-maps"
+import './HomeDetailMap.css'
 
 
-// const googleKey = process.env.REACT_APP_GOOGLE_KEY
+const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
 const Map = ({ newLng, newLat }) => {
 
     return (
         ///html
+        <div className='home-detail-map__container'>
         <GoogleMap
             defaultZoom={16}
             defaultCenter={{ lat: newLat, lng: newLng }}
@@ -22,6 +24,7 @@ const Map = ({ newLng, newLat }) => {
                 }}
             />
         </GoogleMap>
+        </div>
     )
 }
 
@@ -31,11 +34,11 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function GogleMap({ newLat, newLng }) {
 
     return (
-        <div className="map__container">
+        <div className='home-detail-map__container'>
             <WrappedMap
                 newLat={newLat}
                 newLng={newLng}
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbCQcXDult2fDzYx4URy5YgS5H2sHbzc&callback=initMap`}
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleKey}&callback=initMap`}
                 loadingElement={<div style={{ height: '100%' }} />}
                 containerElement={<div style={{ height: '100%' }} />}
                 mapElement={<div style={{ height: '100%' }} />}

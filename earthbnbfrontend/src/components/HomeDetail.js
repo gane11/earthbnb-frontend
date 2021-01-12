@@ -11,7 +11,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import Reviews from './Reviews'
-import Map from './HomeDetailMap'
+import HomeDetailMap from './HomeDetailMap'
 
 //material ui
 const useStyles = makeStyles((theme) => ({
@@ -93,7 +93,7 @@ const HomeDetail = ({home, getOneHome}) => {
     </div>
   </div>
   <div>
-    <Map newLat={home.lat} newLng={home.lng}/>
+    <HomeDetailMap newLat={home.lat} newLng={home.lng}/>
   </div>
 <Footer />
 </>
