@@ -5,19 +5,19 @@ import { getAllReviews } from '../store/actions/reviews'
 
 const Reviews = ({getAllReviews,reviews , homeId }) => {
   // const { id } = useParams();
+  // const homeId = Number.parseInt(id);
+
   useEffect(() => {
     getAllReviews(homeId)
   }, [homeId])
-
-  console.log(homeId)
-  // const homeId = Number.parseInt(id);
 
 
   if(!reviews) return null
   return (
     <div>
       <div className='review__section'>
-        {reviews.map((review) => {
+        {reviews.length > 0 ? 
+        (reviews.map((review) => {
           return (
           <>
             <p>review:</p>
@@ -26,7 +26,10 @@ const Reviews = ({getAllReviews,reviews , homeId }) => {
             <div>{review.rating}</div>
           </>
           )
-        })}
+        })
+        ) : (
+          <h2>No reviews (yet)</h2>
+        )}
         {/* <div>{reviewsObj.description}</div> */}
       </div>
     </div>
