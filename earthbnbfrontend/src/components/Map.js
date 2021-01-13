@@ -28,7 +28,7 @@ const Map = ({ homes, getAllHomes }) => {
   return (
     ///html
     <GoogleMap
-      defaultZoom={14}
+      defaultZoom={13}
       defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
@@ -78,7 +78,7 @@ export default function GogleMap({searchValue}) {
       dispatch(getAllHomes())
   }, [JSON.stringify(homes)])
   return (
-    <div style={{ width: '50vw', height: '100vh' }}>
+    <div className="map_width"style={{ width: '50vw', height: '100vh' }}>
       <WrappedMap
         searchValue={searchValue}
         homes={homes}

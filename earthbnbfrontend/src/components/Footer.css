@@ -3,9 +3,14 @@
     padding: 20px;
     background-color: #f7f7f7;
     text-align: center;
+    z-index: 999;
 }
 
 .footer > p {
     padding: 5px;
     font-size: 14px;
+}
+
+.footer__container {
+    z-index: 9999;
 }

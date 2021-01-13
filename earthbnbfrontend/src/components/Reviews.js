@@ -20,6 +20,7 @@ const Reviews = ({getAllReviews,reviews , homeId }) => {
         (reviews.map((review) => {
           return (
           <>
+            
             <p>review:</p>
             <div>{review.description}</div>
             <p>rating:</p>

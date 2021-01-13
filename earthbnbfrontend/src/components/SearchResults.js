@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './SearchResult.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
@@ -10,13 +10,20 @@ import Footer from './Footer'
 import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const SearchResult = ({home, getAllHomes}) =>{
+  const [liked, setLiked] = useState(false)
+
   const { searchValue } = useParams()
   useEffect(() => {
     getAllHomes();
   }, [])
 
+
+  const onClick = () => {
+    setLiked(!liked)
+  }
 
 //   if (searchValue.toLowerCase() !== 'miami beach' || searchValue.toLowerCase() !== 'new york') {
 //         return (
@@ -42,7 +49,16 @@ const SearchResult = ({home, getAllHomes}) =>{
           <Link to={`/homes/${home.id}`}>
             <img src={home.image} className="house_image" />
           </Link>
-        <FavoriteBorderIcon className="searchResult__heart" />
+        { liked? (
+          <FavoriteIcon />
+        ) : (
+          <a onClick={onClick}>
+
+            <FavoriteBorderIcon className="searchResult__heart"  />
+          </a>
+        )
+
+        }
 
         <div className='searchResult__info'>
           <div className="searchResult__infoTop">
@@ -72,7 +88,9 @@ const SearchResult = ({home, getAllHomes}) =>{
           <Map searchValue={searchValue}/>
         </div>
       </div>
+      <div className="footer__container">
    <Footer />
+      </div>
    </>
   )
 }
