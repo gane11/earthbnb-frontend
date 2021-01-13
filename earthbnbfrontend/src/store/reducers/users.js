@@ -1,5 +1,5 @@
 import merge from "lodash/merge";
-import { LOAD_USERS } from "../actions/reviews";
+import { LOAD_USERS } from "../actions/users";
 
 export default function reducer(state = {}, action) {
 

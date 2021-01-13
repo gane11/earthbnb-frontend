@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {getOneHome} from "../store/actions/currentHome"
+import { getAllUsers } from "../store/actions/users"
 // import image from './images/miami-mansion-1.jpg'
 import Header from './Header'
 import Footer from './Footer'
@@ -39,15 +40,17 @@ const useStyles = makeStyles((theme) => ({
 
 //
 
-const HomeDetail = ({home, getOneHome}) => {
+const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
   const {id} = useParams();
   useEffect(()=> {
     getOneHome(id)
   },[id])
 
+  useEffect(() => {
+    getAllUsers()
+  }, [])
     const classes = useStyles();
-
-
+ 
   if(!home) return null;
 
   return (
@@ -78,13 +81,14 @@ const HomeDetail = ({home, getOneHome}) => {
       <div className="home_detail">
        <div className="home-detail-list">
         <div>
-            <h1>{`Entire place hosted by ${home.hostId}`}</h1>
+              <h1>{`Entire place hosted by ${users[home.hostId].firstName}`}</h1>
           <div className="full_line"></div>
           <h3>Description:</h3>
           <p>{home.description}</p>
           <div className="full_line"></div>
           <h3>Reviews:</h3>
-          <Reviews />
+          <Reviews homeId={home.id}/>
+          <div className="full_line"></div>
         </div>
       </div>
     </div>
@@ -103,9 +107,12 @@ const HomeDetail = ({home, getOneHome}) => {
 
 const HomeDetailContainer = () => {
 const home = useSelector((state) => state.homes[state.currentHome]);
+const users = useSelector((state) => Object.values(state.users))
 const dispatch = useDispatch()
 return (
   <HomeDetail
+    users={users}
+    getAllUsers={() => dispatch(getAllUsers())}
     home={home}
     getOneHome={(id) => dispatch(getOneHome(id))}
   />

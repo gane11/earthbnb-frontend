@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllReviews } from '../store/actions/reviews'
 
-const Reviews = ({getAllReviews,reviews }) => {
-  const { id } = useParams();
+const Reviews = ({getAllReviews,reviews , homeId }) => {
+  // const { id } = useParams();
   useEffect(() => {
-    getAllReviews(id)
-  }, [id])
-  const homeId = Number.parseInt(id);
+    getAllReviews(homeId)
+  }, [homeId])
+
+  console.log(homeId)
+  // const homeId = Number.parseInt(id);
 
 
   if(!reviews) return null
@@ -31,13 +33,14 @@ const Reviews = ({getAllReviews,reviews }) => {
   )
 }
 
-const ReviewsContainer = () => {
+const ReviewsContainer = ({homeId}) => {
   const reviews = useSelector((state) => Object.values(state.reviews))
   const dispatch = useDispatch()
   return (
     <Reviews
+    homeId={homeId}
       reviews={reviews}
-      getAllReviews={(id) => dispatch(getAllReviews(id))}
+      getAllReviews={(homeId) => dispatch(getAllReviews(homeId))}
     />
   )
 }
