@@ -1,49 +1,80 @@
 import React, {useState} from 'react'
 import Button from '@material-ui/core/Button';
+import {useHistory} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import {reserve} from '../store/actions/reserveAction'
 import './Reservations.css'
 
 const Reservations = ({home}) =>{
+  let token = localStorage.getItem('TOKEN_KEY')
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const [checkIn, setCheckIn] = useState(new Date());
-  const [checkOut, setCheckOut] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [homePrice, setHomePrice] = useState(home.price)
-  const [numGuests, setNumGuests] = useState(2)
+  const [numPeople, setNumPeople] = useState(2)
+  let homeId = home.id
+  let userId = 1
 
-  const updateProperty = (callback) => (e) => {
-    callback(e.target.value)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if(token) {
+      const payload = {
+        homeId,
+        userId,
+        numPeople,
+        startDate,
+        endDate,
+      }
+      dispatch(reserve(payload))
+
+    } else {
+      history.push('/login')
+    }
+  }
+
+  // const updateProperty = (callback) => (e) => {
+  //   callback(e.target.value)
+  //   setHomePrice(diffDays * home.price)
+
+  // }
+
+  const updateStartDate = (e) => {
+    setStartDate(e.value)
     setHomePrice(diffDays * home.price)
+  }
+
+  const updateEndDate = (e) => {
+    setEndDate(e.value)
 
   }
 
+  const updateNumPeople = (e) => {
+    setNumPeople(e.value)
+  }
+
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-  const firstDate = new Date(checkOut);
-  const secondDate = new Date(checkIn);
+  const firstDate = new Date(startDate);
+  const secondDate = new Date(endDate);
 
   const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const payload = {
-      checkIn,
-      checkOut,
-      numGuests
-    };
-  }
-  console.log('alex')
+
 
   return (
    <>
     <div className="reservation_container">
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit}>
       <h2>{`${home.price}/night`}</h2>
         <h4>CHECK-IN</h4>
-        <input onChange={updateProperty(setCheckIn)} type="date"></input>
+        <input onChange={updateStartDate()} type="date"></input>
         <h4>CHECK-OUT</h4>
-        <input onChange={updateProperty(setCheckOut)} type="date"></input>
+        <input onChange={updateEndDate()} type="date"></input>
         <h4>GUESTS</h4>
         {/* <label for="num_guests">GUESTS</label> */}
-        <select onChange={updateProperty(setNumGuests)} name="num_guests" id="num_guests">
+        <select onChange={updateNumPeople()} name="num_guests" id="num_guests">
           <option value="num_1">1</option>
           <option value="num_1">2</option>
           <option value="num_1">3</option>
