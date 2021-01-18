@@ -6,7 +6,12 @@ export default function reducer(state = {}, action) {
         case RESERVE_HOME: {
             return {
                 ...state,
-                
+                id: action.id,
+                homeId: action.id,
+                userId: action.id,
+                numPeople: action.numPeople,
+                startDate: action.startDate,
+                endDate: action.endDate
             }
         }
 

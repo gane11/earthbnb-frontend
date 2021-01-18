@@ -41,17 +41,17 @@ const Reservations = ({home}) =>{
   // }
 
   const updateStartDate = (e) => {
-    setStartDate(e.value)
+    setStartDate(e.target.value)
     setHomePrice(diffDays * home.price)
   }
 
   const updateEndDate = (e) => {
-    setEndDate(e.value)
+    setEndDate(e.target.value)
 
   }
 
   const updateNumPeople = (e) => {
-    setNumPeople(e.value)
+    setNumPeople(e.target.value)
   }
 
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -69,12 +69,12 @@ const Reservations = ({home}) =>{
       <form onSubmit={handleSubmit}>
       <h2>{`${home.price}/night`}</h2>
         <h4>CHECK-IN</h4>
-        <input onChange={updateStartDate()} type="date"></input>
+        <input onChange={updateStartDate} type="date"></input>
         <h4>CHECK-OUT</h4>
-        <input onChange={updateEndDate()} type="date"></input>
+        <input onChange={updateEndDate} type="date"></input>
         <h4>GUESTS</h4>
         {/* <label for="num_guests">GUESTS</label> */}
-        <select onChange={updateNumPeople()} name="num_guests" id="num_guests">
+        <select onChange={updateNumPeople} name="num_guests" id="num_guests">
           <option value="num_1">1</option>
           <option value="num_1">2</option>
           <option value="num_1">3</option>
