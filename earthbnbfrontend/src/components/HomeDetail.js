@@ -53,6 +53,11 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
  
   if(!home) return null;
 
+  let userId
+  if(users) {
+    userId = home.hostId - 1
+  }
+
   return (
     <>
     <Header />
@@ -81,7 +86,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
       <div className="home_detail">
        <div className="home-detail-list">
         <div>
-              <h1>{`Entire place hosted by ${users[home.hostId].firstName}`}</h1>
+              <h1>{`Entire place hosted by ${users[userId].firstName}`}</h1>
           <div className="full_line"></div>
           <h3>Description:</h3>
           <p>{home.description}</p>
