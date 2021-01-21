@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-
+let popularHomes = [1,3,8,10,13,15,19,22]
+let sanFran = []
 ///
 
 const ShowAllHomes = ({getAllHomes, home }) => {
@@ -39,12 +40,17 @@ const ShowAllHomes = ({getAllHomes, home }) => {
   if (!home) return null
   return (
    <div>
+     <h1 className="popular-homes">Popular Homes</h1>
       <div className='home__section'>
         {home.map((home) => {
-          return(
-          <Card home={home}/>
-          )
+          if(popularHomes.includes(home.id)) return(<Card home={home}/>)
         })}
+      </div>
+      <h1 className="popular-homes">Visit San Francisco</h1>
+      <div className='home__section'>
+      {home.map((home) => {
+        if (home.id > 24) return (<Card home={home} />)
+      })}
       </div>
   </div>
   );

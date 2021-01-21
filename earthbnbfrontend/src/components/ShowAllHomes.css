@@ -11,3 +11,9 @@
   align-content:flex-start;
   padding: 30px;
 }
+
+.popular-homes {
+  text-decoration: underline;  
+  margin-left: 2rem;
+  margin-top: 2rem;
+}

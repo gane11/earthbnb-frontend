@@ -13,18 +13,45 @@ const Map = ({ homes, getAllHomes }) => {
   let newLat 
   let newLng
   const [selectedHome, setSelectedHome] = useState(null)
-  if(searchValue.toLowerCase() === 'miami beach') {
+  const alex = () => {
+    console.log('HI')
+  }
+
+  useEffect(() => {
+    alex()
+  }, [searchValue])
+
+  if(searchValue.toLowerCase() === 'miami') {
     newLat = homes[0].lat
       // 25.783912;
     newLng = homes[0].lng
       // -80.160915;
   }
   if (searchValue.toLowerCase() === 'new york') {
-    newLat = homes[5].lat
+    newLat = homes[8].lat
     // 40.758896
-    newLng = homes[5].lng
+    newLng = homes[8].lng
       // - 73.985130
   }
+  if (searchValue.toLowerCase() === 'san francisco') {
+    newLat = homes[26].lat
+    // 25.783912;
+    newLng = homes[26].lng
+    // -80.160915;
+  }
+  if (searchValue.toLowerCase() === 'los angeles') {
+    newLat = homes[20].lat
+    // 25.783912;
+    newLng = homes[20].lng
+    // -80.160915;
+  }
+  if (searchValue.toLowerCase() === 'austin') {
+    newLat = homes[14].lat
+    // 25.783912;
+    newLng = homes[14].lng
+    // -80.160915;
+  }
+
   return (
     ///html
     <GoogleMap
