@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearchValue}) => {
-  const [asearchValue, setSearchValue] = useState('')
+  const [asearchValue, setSearchValue] = useState('s')
   const [showDatePicker, setShowDatePicker] = useState(false)
   const dispatch = useDispatch()
 

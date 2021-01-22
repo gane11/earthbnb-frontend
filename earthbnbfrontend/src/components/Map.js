@@ -8,16 +8,17 @@ import './Map.css'
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
-const Map = ({ homes, getAllHomes }) => {
+const Map = ({ homes, getAllHomes, searchValue }) => {
   // const { searchValue } = useParams()
   let newLat 
   let newLng
   const [selectedHome, setSelectedHome] = useState(null)
-  
+  // let searchValue = localStorage.getItem('searchValue')
+   
 
-  let searchValue = localStorage.getItem('searchValue')
 
 
+if(searchValue) {
 
   if(searchValue.toLowerCase() === 'miami') {
     newLat = homes[0].lat
@@ -49,6 +50,7 @@ const Map = ({ homes, getAllHomes }) => {
     newLng = homes[14].lng
     // -80.160915;
   }
+}
 
   return (
     ///html
@@ -105,13 +107,13 @@ export default function GogleMap({searchValue}) {
   return (
     <div className="map_width"style={{ width: '50vw', height: '100vh' }}>
       <WrappedMap
-        searchValue={searchValue}
         homes={homes}
         getAllHomes={() => dispatch(getAllHomes())}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleKey}&callback=initMap`}
         loadingElement={<div style={{ height: '100%' }} />}
         containerElement={<div style={{ height: '100%' }} />}
         mapElement={<div style={{ height: '100%' }} />}
+        searchValue={searchValue}
       />
     </div>
   )

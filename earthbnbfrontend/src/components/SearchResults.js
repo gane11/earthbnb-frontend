@@ -36,7 +36,12 @@ const SearchResult = ({home, getAllHomes}) =>{
 
   }  
    if(!valid) {
-     return <h1>Sorry not there yet..try Miami , San Francisco , Los Angeles, New York or Austin !</h1>
+     return (
+      <>
+       <Header/>
+     <h1>Sorry not there yet..try Miami , San Francisco , Los Angeles, New York or Austin !</h1>
+     </>
+     )
    }
   return (
     <>
