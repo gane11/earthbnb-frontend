@@ -14,6 +14,7 @@ const DatePicker = ({searchValue, datePicker}) => {
   const [showDatePicker, setShowDatePicker] = useState(datePicker)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  
 
   const selectionRange = {
     startDate: startDate,

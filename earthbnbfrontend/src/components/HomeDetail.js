@@ -53,10 +53,6 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
  
   if(!home) return null;
 
-  let userId
-  if(users) {
-    userId = home.hostId - 1
-  }
 
   return (
     <>
@@ -86,7 +82,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
       <div className="home_detail">
        <div className="home-detail-list">
         <div>
-              <h1>{users ? (`Entire place hosted by ${users[1].firstName}` ) : (null)}</h1>
+              <h1>{users ? (`Entire place hosted by ${users[0].firstName}` ) : (null)}</h1>
           <div className="full_line"></div>
           <h3>Description:</h3>
           <p>{home.description}</p>

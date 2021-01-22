@@ -11,11 +11,8 @@ import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import alexLogo from './images/alexbnblogo.png'
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardDatePicker,
-// } from '@material-ui/pickers';
-// import { DateRangePicker } from "react-date-range";
+import { getSearchValue } from '../store/actions/searchValueAction';
+
 
 
 
@@ -60,15 +57,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ loginButtonHandler, signUpButtonHandler}) => {
-  const [searchValue, setSearchValue] = useState('')
+const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearchValue}) => {
+  const [asearchValue, setSearchValue] = useState('')
   const [showDatePicker, setShowDatePicker] = useState(false)
   const dispatch = useDispatch()
 
 
-
   const updateSearch = (e) => {
     setSearchValue(e.target.value)
+    localStorage.removeItem('searchValue')
+    localStorage.setItem('searchValue', e.target.value)
   }
 
   const logOutButtonHandler = (e) => {
@@ -102,7 +100,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler}) => {
           />
         </div>
         <div className="date_picker">
-          {showDatePicker && <DatePicker searchValue={searchValue} datePicker={showDatePicker}/>}
+          {showDatePicker && <DatePicker searchValue={asearchValue} datePicker={showDatePicker}/>}
           <Button color="secondary"
           onClick={() =>setShowDatePicker(!showDatePicker)}
           >Choose Date</Button>
@@ -144,11 +142,14 @@ const HeaderContainer = () => {
     e.preventDefault()
     history.push('/login')
   }
+  const searchValue = useSelector((state) => state.searchValue)
   return (
     <Header
       signUpButtonHandler={signUpButtonHandler}
       loginButtonHandler={loginButtonHandler}
       logOutButtonHandler={logOutButtonHandler}
+      searchValue={searchValue}
+      getSearchValue={(searchValue) => dispatch(getSearchValue(searchValue))}
     />
   )
 }

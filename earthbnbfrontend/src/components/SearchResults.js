@@ -15,7 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 const SearchResult = ({home, getAllHomes}) =>{
   const [liked, setLiked] = useState(false)
 
-  const { searchValue } = useParams()
+  let searchValue = localStorage.getItem('searchValue')
   useEffect(() => {
     getAllHomes();
   }, [])
@@ -33,9 +33,19 @@ const SearchResult = ({home, getAllHomes}) =>{
 //         )
 
 // }
+  let valid = false
 
+  if (searchValue) {
+    if (searchValue.toLowerCase() === 'san francisco') valid = true
+    if (searchValue.toLowerCase() === 'los angeles') valid = true
+    if (searchValue.toLowerCase() === 'austin') valid = true
+    if (searchValue.toLowerCase() === 'miami') valid = true
+    if (searchValue.toLowerCase() === 'new york') valid = true
 
-  
+  }  
+   if(!valid) {
+     return <h1>Sorry not there yet..try Miami , San Francisco , Los Angeles, New York or Austin !</h1>
+   }
   return (
     <>
     <Header />

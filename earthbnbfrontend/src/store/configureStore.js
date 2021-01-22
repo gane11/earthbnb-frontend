@@ -5,11 +5,12 @@ import thunk from 'redux-thunk';
 import currentHome from './reducers/currentHome'
 import reviews from './reducers/reviews'
 import users from './reducers/users'
+import searchValue from './reducers/searchValueReducer'
 
 
 const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const reducer = combineReducers({ authentication, homes, currentHome, reviews, users});
+const reducer = combineReducers({ authentication, homes, currentHome, reviews, users, searchValue});
 
 const configureStore = (initialState) => {
   return createStore(

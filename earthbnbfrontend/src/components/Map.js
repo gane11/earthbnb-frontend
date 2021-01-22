@@ -9,17 +9,15 @@ import './Map.css'
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
 
 const Map = ({ homes, getAllHomes }) => {
-  const { searchValue } = useParams()
+  // const { searchValue } = useParams()
   let newLat 
   let newLng
   const [selectedHome, setSelectedHome] = useState(null)
-  const alex = () => {
-    console.log('HI')
-  }
+  
 
-  useEffect(() => {
-    alex()
-  }, [searchValue])
+  let searchValue = localStorage.getItem('searchValue')
+
+
 
   if(searchValue.toLowerCase() === 'miami') {
     newLat = homes[0].lat
@@ -55,7 +53,7 @@ const Map = ({ homes, getAllHomes }) => {
   return (
     ///html
     <GoogleMap
-      defaultZoom={13}
+      defaultZoom={14}
       defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
