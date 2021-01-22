@@ -25,14 +25,6 @@ const SearchResult = ({home, getAllHomes}) =>{
     setLiked(!liked)
   }
 
-//   if (searchValue.toLowerCase() !== 'miami beach' || searchValue.toLowerCase() !== 'new york') {
-//         return (
-//             <>
-//             <h1>Sorry not there yet, try Miami , San Francisco , Los Angeles or Austin !</h1>
-//             </>
-//         )
-
-// }
   let valid = false
 
   if (searchValue) {
