@@ -43,3 +43,42 @@
     right:0;
     padding-bottom: 10%;
 }
+
+
+.reviews-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews-header {
+  justify-items: self-start;
+}
+
+.reviews-button {
+   margin-right: 5rem;
+    margin-top: 1rem;
+
+}
+
+
+.review-input {
+  margin-top: 2rem;
+  width: 25rem;
+    max-width: 25rem;
+    min-width: 25rem;
+    height: 6rem;
+    max-height: 6rem;
+    min-height: 6rem;
+    border-radius: 2rem;
+    border: 0.2rem solid #ff7779;
+     outline: none;
+     resize: none;
+     text-indent: 1rem;
+
+
+}
+
+.post-button {
+      margin-left: 20rem;
+    margin-bottom: 0.5rem;
+}

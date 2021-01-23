@@ -11,6 +11,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Rating from './Rating'
 
 const SearchResult = ({home, getAllHomes}) =>{
   const [liked, setLiked] = useState(false)
@@ -56,17 +57,11 @@ const SearchResult = ({home, getAllHomes}) =>{
           <Link to={`/homes/${home.id}`}>
             <img src={home.image} className="house_image" />
           </Link>
-        { liked? (
-          <FavoriteIcon />
-        ) : (
-          <a onClick={onClick}>
+          <div className="searchResult__heart">
 
-            <FavoriteBorderIcon className="searchResult__heart"  />
-          </a>
-        )
-
-        }
-
+            <Rating/>
+          </div>
+            {/* <FavoriteBorderIcon className="searchResult__heart"  /> */}
         <div className='searchResult__info'>
           <div className="searchResult__infoTop">
            <p>{home.city}</p>
@@ -77,13 +72,7 @@ const SearchResult = ({home, getAllHomes}) =>{
           </div>
 
           <div className="searchResult__infoBottom">
-            <div className="searchResult__stars">
-              <StarIcon className="searchResult__star" />
-              <p>
-                <strong>4.5</strong>
-              </p>
-            </div>
-          < div className='searchResults__price'>
+          <div className='searchResults__price'>
               <h2>{`$${home.price} per night`}</h2>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {getOneHome} from "../store/actions/currentHome"
@@ -13,6 +13,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import Reviews from './Reviews'
 import HomeDetailMap from './HomeDetailMap'
+import Button from '@material-ui/core/Button';
+// import { createReview} from '../store/actions/createReviewAction'
 
 //material ui
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +44,36 @@ const useStyles = makeStyles((theme) => ({
 
 const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
   const {id} = useParams();
+  const [addReview, setAddReview] = useState(false)
+  const [description, setDescription] = useState('')
+
+  let token = localStorage.getItem('TOKEN_KEY')
+  let userId = 1
+  let homeId
+  if(home) {
+
+    homeId = home.id
+  }
+  
+
+  const addReviewButton = async (e) => {
+    e.preventDefault()
+    if (token) {
+      const payload = {
+       description,
+      //  rating,
+       userId,
+       homeId
+      }
+      // dispatch(createReview(payload))
+      alert('Thanks!')
+
+    } else {
+      // history.push('/login')
+    }
+
+  }
+
   useEffect(()=> {
     getOneHome(id)
   },[id])
@@ -50,6 +82,11 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
     getAllUsers()
   }, [])
     const classes = useStyles();
+
+
+  const handleClikc = () => {
+    setAddReview(true)
+  }
  
   if(!home) return null;
 
@@ -87,8 +124,39 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
           <h3>Description:</h3>
           <p>{home.description}</p>
           <div className="full_line"></div>
-          <h3>Reviews:</h3>
+          <div className="reviews-container">
+            <div className="reviews-header">
+              <h3>Reviews:</h3>
+            </div>
+            <div className="reviews-button">
+                  <Button
+                    onClick={handleClikc}
+                    fullWidth
+                    variant="contained"
+                    color="secondary"
+                    className={classes.submit}
+                  >
+                    Add Review
+          </Button>
+            </div>
+          </div>
+
           <Reviews homeId={home.id}/>
+          <div>
+            {addReview? (
+              <form onSubmit={addReviewButton}>
+                <div>
+                      <textarea className="review-input" wrap="off" cols="5" rows="5" maxlength="50"></textarea>
+                </div>
+                <div className="post-button">
+                  <Button type="submit" variant="contained" color="secondary" 
+                  >Post</Button>  
+                </div>
+              </form>
+            ): (
+              null
+            )}
+          </div>
           <div className="full_line"></div>
         </div>
       </div>
