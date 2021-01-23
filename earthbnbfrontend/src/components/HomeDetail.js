@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {getOneHome} from "../store/actions/currentHome"
 import { getAllUsers } from "../store/actions/users"
@@ -14,7 +14,7 @@ import GridList from '@material-ui/core/GridList';
 import Reviews from './Reviews'
 import HomeDetailMap from './HomeDetailMap'
 import Button from '@material-ui/core/Button';
-// import { createReview} from '../store/actions/createReviewAction'
+import { createReview} from '../store/actions/createReviewAction'
 
 //material ui
 const useStyles = makeStyles((theme) => ({
@@ -44,8 +44,11 @@ const useStyles = makeStyles((theme) => ({
 
 const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
   const {id} = useParams();
+  const history = useHistory();
   const [addReview, setAddReview] = useState(false)
   const [description, setDescription] = useState('')
+
+  const dispatch = useDispatch();
 
   let token = localStorage.getItem('TOKEN_KEY')
   let userId = 1
@@ -54,22 +57,23 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
 
     homeId = home.id
   }
-  
+  const updateDescription = (e) => {
+      setDescription(e.target.value)
+  }
 
   const addReviewButton = async (e) => {
     e.preventDefault()
     if (token) {
       const payload = {
        description,
-      //  rating,
        userId,
        homeId
       }
-      // dispatch(createReview(payload))
+      dispatch(createReview(payload))
       alert('Thanks!')
 
     } else {
-      // history.push('/login')
+      history.push('/login')
     }
 
   }
@@ -146,7 +150,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
             {addReview? (
               <form onSubmit={addReviewButton}>
                 <div>
-                      <textarea className="review-input" wrap="off" cols="5" rows="5" maxlength="50"></textarea>
+                      <textarea onChange={updateDescription} className="review-input" wrap="off" cols="5" rows="5" maxlength="50"></textarea>
                 </div>
                 <div className="post-button">
                   <Button type="submit" variant="contained" color="secondary" 
