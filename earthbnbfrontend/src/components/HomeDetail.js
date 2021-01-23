@@ -70,7 +70,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
        homeId
       }
       dispatch(createReview(payload))
-      alert('Thanks!')
+      setAddReview(false)
 
     } else {
       history.push('/login')
