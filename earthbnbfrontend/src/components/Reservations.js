@@ -72,7 +72,7 @@ const Reservations = ({home}) =>{
         </select>
         <h3>Price: $ {homePrice}</h3>
         <Button type="submit" variant="contained" color="secondary"
-        >Check avaliability</Button>
+        >Reserve</Button>
       </form>
     </div>
   </>
