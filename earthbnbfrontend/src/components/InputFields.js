@@ -9,8 +9,14 @@ export default function App() {
     const [endDate, setEndDate] = useState(null);
     const [focusedInput, setFocusedInput] = useState(null);
 
-    localStorage.setItem('startDate', startDate)
-    localStorage.setItem('endDate', endDate)
+
+    console.log(startDate, endDate)
+    const handleChange = ({startDate, endDate}) => {
+        setStartDate(startDate)
+        setEndDate(endDate)
+        localStorage.setItem('startDate', startDate)
+        localStorage.setItem('endDate', endDate)
+    }
 
     return (
         <div className="App">
@@ -19,7 +25,7 @@ export default function App() {
                 startDateId="s_id"
                 endDate={endDate}
                 endDateId="e_id"
-                onDatesChange={({ startDate, endDate }) => { setStartDate(startDate); setEndDate(endDate); }}
+                onDatesChange={handleChange}
                 focusedInput={focusedInput}
                 onFocusChange={e => setFocusedInput(e)}
                 displayFormat="DD/MM/YYYY"

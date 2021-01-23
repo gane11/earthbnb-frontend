@@ -33,23 +33,24 @@ const Reservations = ({home}) =>{
         endDate,
       }
       dispatch(reserve(payload))
+      alert('Thanks!')
 
     } else {
       history.push('/login')
     }
   }
-
-  const updateNumPeople = (e) => {
-    setNumPeople(e.target.value)
-  }
-
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-  const firstDate = startDate
-  const secondDate = endDate
+  const firstDate = new Date(startDate)
+  const secondDate = new Date(endDate)
 
   const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+  
+  const updateNumPeople = (e) => {
+    setNumPeople(e.target.value)
+    setHomePrice(diffDays * home.price)
+  }
 
-  console.log(diffDays)
+
 
 
 
