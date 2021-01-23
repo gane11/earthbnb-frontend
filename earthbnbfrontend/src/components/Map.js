@@ -55,7 +55,7 @@ if(searchValue) {
   return (
     ///html
     <GoogleMap
-      defaultZoom={14}
+      defaultZoom={13.5}
       defaultCenter={{ lat: newLat, lng: newLng }}
     >
       {homes.map((home) => {
