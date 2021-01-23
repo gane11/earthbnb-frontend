@@ -7,7 +7,9 @@ export const reserve = (reservation) => async (dispatch) => {
     try{
         const res = await fetch(`${baseUrl}/reservations`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json' },
             body: JSON.stringify(reservation)
         })
 
@@ -15,7 +17,7 @@ export const reserve = (reservation) => async (dispatch) => {
             const data = await res.json();
             dispatch({
                 type: RESERVE_HOME,
-                ...data
+                
             })
             
         }
