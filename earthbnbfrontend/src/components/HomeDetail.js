@@ -71,6 +71,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
       }
       dispatch(createReview(payload))
       setAddReview(false)
+      history.push(`/homes/${home.id}`)
 
     } else {
       history.push('/login')

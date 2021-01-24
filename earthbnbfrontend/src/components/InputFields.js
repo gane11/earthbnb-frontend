@@ -10,7 +10,6 @@ export default function App() {
     const [focusedInput, setFocusedInput] = useState(null);
 
 
-    console.log(startDate, endDate)
     const handleChange = ({startDate, endDate}) => {
         setStartDate(startDate)
         setEndDate(endDate)

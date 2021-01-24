@@ -1,4 +1,13 @@
 .review__container {
     border: 0.1rem solid gray;
-    margin-bottom: 3rem;
+    height: 6rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.review__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
