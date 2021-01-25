@@ -14,6 +14,7 @@ import Header from './Header'
 import ShowAllHomes from './ShowAllHomes'
 import SearchResult from './SearchResults'
 import HomeDetailContainer from './HomeDetail';
+import UserProfile from './UserProfile'
 
 const App = ({needLogin, loadToken}) => {
   const [loaded, setLoaded] = useState(false);
@@ -67,6 +68,10 @@ const App = ({needLogin, loadToken}) => {
         <Route 
           path='/search-result/:searchValue'
           component={SearchResult}
+        />
+        <Route 
+          exact path='/users/:id'
+          component={UserProfile}
         />
       </Switch>
     </BrowserRouter>

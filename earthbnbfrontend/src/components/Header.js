@@ -1,4 +1,4 @@
-import React, {useState}from 'react'
+import React, {useState, useEffect}from 'react'
 import './Header.css'
 import DatePicker from './DatePicker'
 import {useHistory,} from 'react-router-dom';
@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import alexLogo from './images/alexbnblogo.png'
 import { getSearchValue } from '../store/actions/searchValueAction';
+import { getAllUsers } from "../store/actions/users"
 
 
 
@@ -57,11 +58,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearchValue}) => {
+const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearchValue, users, getAllUsers}) => {
   const [asearchValue, setSearchValue] = useState('s')
   const [showDatePicker, setShowDatePicker] = useState(false)
   const dispatch = useDispatch()
 
+  let userId = localStorage.getItem('userId') - 1
+  let user
+  if(users) {
+    user = users[userId]
+  }
+
+    
+  useEffect(() => {
+    getAllUsers()
+  }, [])
 
   const updateSearch = (e) => {
     setSearchValue(e.target.value)
@@ -108,7 +119,9 @@ const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearc
       </div>
       {token 
         ? <div className='header__right'> 
-          <p className="welcome_letters">Welcome</p>
+          <Link to={`/users/${userId}`}>
+          <p className="welcome_letters" >{user? `Welcome   ${user.firstName}` : null} </p>
+          </Link>
           <Button variant="contained" color="secondary"
             onClick={logOutButtonHandler}
           >LogOut</Button>
@@ -129,6 +142,8 @@ const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearc
 
 const HeaderContainer = () => {
   const history = useHistory()
+  const users = useSelector((state) => Object.values(state.users))
+
   const dispatch = useDispatch()
   const logOutButtonHandler = (e) => {
     e.preventDefault()
@@ -145,6 +160,8 @@ const HeaderContainer = () => {
   const searchValue = useSelector((state) => state.searchValue)
   return (
     <Header
+      users={users}
+      getAllUsers={() => dispatch(getAllUsers())}
       signUpButtonHandler={signUpButtonHandler}
       loginButtonHandler={loginButtonHandler}
       logOutButtonHandler={logOutButtonHandler}

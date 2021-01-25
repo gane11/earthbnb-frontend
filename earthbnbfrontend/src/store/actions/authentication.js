@@ -23,8 +23,9 @@ export const login = (email, password) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    const { token } = await response.json();
+    const { token, user } = await response.json();
     window.localStorage.setItem(TOKEN_KEY, token);
+    window.localStorage.setItem('userId', user.id);
     dispatch(setToken(token));
   }
 };
@@ -55,8 +56,9 @@ export const createUser = (data) => async (dispatch) => {
   })
 
   if(response.ok) {
-    const { token } = await response.json();
+    const { token , user } = await response.json();
     window.localStorage.setItem(TOKEN_KEY, token);
+    window.localStorage.setItem('userId', user.id);
     dispatch(setToken(token));
   }
 
@@ -78,6 +80,7 @@ export const logout = () => async (dispatch, getState) => {
 
   if (response.ok) {
     window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem('userId');
     dispatch(removeToken());
   }
 };
