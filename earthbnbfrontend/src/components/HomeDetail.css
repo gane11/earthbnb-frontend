@@ -48,17 +48,14 @@
 .reviews-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .reviews-header {
   justify-items: self-start;
 }
 
-.reviews-button {
-   margin-right: 5rem;
-    margin-top: 1rem;
 
-}
 
 
 .review-input {
@@ -70,6 +67,7 @@
     max-height: 6rem;
     min-height: 6rem;
     border-radius: 2rem;
+    box-shadow: 1px 0 4px rgba(0,2,4,.055), 0 4px 10px rgba(1,1,1,.5);
     border: 0.2rem solid #ff7779;
      outline: none;
      resize: none;

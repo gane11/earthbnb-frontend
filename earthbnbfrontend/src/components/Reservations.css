@@ -4,7 +4,7 @@
   justify-content: space-around;
      border-radius: 2rem;
      grid-column: 3 / 4;
-    height: 24rem;
+    height: 20rem;
     width: 20rem;
     position: sticky;
     margin-top: 2rem;
@@ -12,7 +12,8 @@
     border: 1px solid lightgray;
     padding: 25px;
     padding-bottom: 2rem;
-    box-shadow: 0.3rem 0.3rem #888888;
+    /* box-shadow: 0.3rem 0.3rem #888888; */
+    box-shadow: 1px 0 4px rgba(0,2,4,.055), 0 4px 10px rgba(1,1,1,.5);
 }
 
 

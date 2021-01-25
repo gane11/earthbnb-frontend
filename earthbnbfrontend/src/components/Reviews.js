@@ -1,29 +1,84 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllReviews } from '../store/actions/reviews'
-import { getAllUsers } from "../store/actions/users"
+import { getAllReviews , deleteReview } from '../store/actions/reviews'
 import "./Reviews.css"
+import { Button } from "@material-ui/core";
+import { createReview } from '../store/actions/createReviewAction'
+import { clearAllReviews } from "../store/reducers/reviews"
 
-const Reviews = ({getAllReviews,reviews , homeId , users, getAllUsers }) => {
-  // const { id } = useParams();
-  // const homeId = Number.parseInt(id);
+const Reviews = ({homeId, reviews, getAllReviews, users}) => {
+  const history = useHistory()
+  const dispatch = useDispatch()
 
-  useEffect(() => {
+  let token = localStorage.getItem('TOKEN_KEY')
+  let userId = 1
+
+    const [addReview, setAddReview] = useState(false)
+  const [description, setDescription] = useState('')
+
+
+  const updateDescription = (e) => {
+    setDescription(e.target.value)
+  }
+
+  const addReviewButton = async (e) => {
+
+    e.preventDefault()
+    if (token) {
+      const payload = {
+        description,
+        userId,
+        homeId
+      }
+      await dispatch(createReview(payload))
+      getAllReviews(homeId)
+      setAddReview(false)
+
+    } else {
+      history.push('/login')
+    }
+
+  }
+
+  const handleClikc = () => {
+    setAddReview(true)
+  }
+
+  const onDelete = async (id) => {
+    console.log(id)
+    await dispatch(deleteReview(id))
     getAllReviews(homeId)
-  }, [homeId])
+  };
+  
+useEffect(() => {
+  dispatch(clearAllReviews())
+  getAllReviews(homeId)
+},[homeId, dispatch])
 
-  useEffect(() => {
-    getAllUsers()
-  }, [])
 
 
   if(!reviews) return null
   return (
-    <div>
+    <>
+    <div className="add-review__button">
+      <Button
+        onClick={handleClikc}
+        fullWidth
+        variant="contained"
+        color="secondary"
+        className="add-review__button"
+      >
+        Add Review
+          </Button>
+    </div>
+
+
       <div className='review__section'>
         {reviews.length > 0 ? 
         (reviews.map((review) => {
+          if(review.homeId === homeId) {
+
           return (
           <>
             <div className="review__container">
@@ -33,32 +88,59 @@ const Reviews = ({getAllReviews,reviews , homeId , users, getAllUsers }) => {
               <div>
                 {review.description}
                 </div>
-            </div>
+            {review.userId === userId ? (
+            <div className="delete-review__button" >
+            <Button variant="contained" color="secondary" onClick={() => onDelete(review.id)} >
+              Delete
+            </Button>
+                </div>
+            ): (
+              null
+            )}
+            </div >
           </>
           )
-        })
+        }})
         ) : (
           <h2>No reviews (yet)</h2>
         )}
         {/* <div>{reviewsObj.description}</div> */}
       </div>
+  <div>
+    {addReview ? (
+      <form onSubmit={addReviewButton}>
+        <div>
+          <textarea onChange={updateDescription} className="review-input" wrap="off" cols="5" rows="5" maxlength="50"></textarea>
+        </div>
+        <div className="post-button">
+          <Button type="submit" variant="contained" color="secondary"
+          >Post</Button>
+        </div>
+      </form>
+    ) : (
+        null
+      )}
+      </div>
+    <div>
     </div>
+    </>
   )
 }
 
-const ReviewsContainer = ({homeId}) => {
+
+export const ReviewContainer = ({homeId, users}) => {
   const reviews = useSelector((state) => Object.values(state.reviews))
-  const users = useSelector((state) => Object.values(state.users))
   const dispatch = useDispatch()
   return (
     <Reviews
-    homeId={homeId}
       reviews={reviews}
-      getAllReviews={(homeId) => dispatch(getAllReviews(homeId))}
+      getAllReviews={(id) => dispatch(getAllReviews(id))}
+      homeId={homeId}
       users={users}
-      getAllUsers={() => dispatch(getAllUsers())}
     />
-  )
+  );
 }
 
-export default ReviewsContainer
+
+
+export default ReviewContainer

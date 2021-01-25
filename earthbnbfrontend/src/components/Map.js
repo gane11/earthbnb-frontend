@@ -15,7 +15,9 @@ const Map = ({ homes, getAllHomes, searchValue }) => {
   const [selectedHome, setSelectedHome] = useState(null)
   // let searchValue = localStorage.getItem('searchValue')
    
-
+  useEffect(() => {
+    getAllHomes()
+  }, [])
 
 
 if(searchValue) {
@@ -101,9 +103,6 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function GogleMap({searchValue}) {
   const homes = useSelector((state) => Object.values(state.homes))
   const dispatch = useDispatch()
-  useEffect(() => {
-      dispatch(getAllHomes())
-  }, [JSON.stringify(homes)])
   return (
     <div className="map_width"style={{ width: '50vw', height: '100vh' }}>
       <WrappedMap

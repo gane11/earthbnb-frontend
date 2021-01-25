@@ -12,6 +12,7 @@ const Map = ({ newLng, newLat }) => {
         ///html
         <div className='home-detail-map__container'>
         <GoogleMap
+            
             defaultZoom={16}
             defaultCenter={{ lat: newLat, lng: newLng }}
         >

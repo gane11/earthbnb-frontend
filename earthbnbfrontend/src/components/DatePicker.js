@@ -23,6 +23,7 @@ const DatePicker = ({searchValue, datePicker}) => {
   };
 
   const handleClick = () => {
+    
     history.push(`/search-result/${searchValue}`)
     setShowDatePicker(false)
   }
