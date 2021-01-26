@@ -55,3 +55,7 @@
     color: #ff7779;
 }
 
+
+.rdrStaticRanges > button{
+    width: 10rem
+}

@@ -40,7 +40,14 @@ const DatePicker = ({searchValue, datePicker}) => {
   if (!showDatePicker) return null
   return (
     <div className='search'>
-      <DateRangePicker showDate={new Date()} moveRangeOnFirstSelection={true} minDate={new Date()}ranges={[selectionRange]} onChange={handleSelect} />
+      <DateRangePicker 
+      showDate={new Date()} 
+      moveRangeOnFirstSelection={true} 
+      minDate={new Date()}
+      ranges={[selectionRange]} 
+      onChange={handleSelect} 
+        color="#3d91ff"
+      />
       <p>Number of guests <PeopleIcon /></p>
       <input min={0} defaultValue={2} type="number" />
       <Button onClick={handleClick}>Search Alexbnb</Button>
