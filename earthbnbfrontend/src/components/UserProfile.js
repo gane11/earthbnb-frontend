@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { getAllUsers } from "../store/actions/users"
@@ -13,6 +13,12 @@ import ProfileCard from './ProfileCard'
 
 const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
     const { id } = useParams();
+    const history = useHistory()
+    let userId = localStorage.getItem('userId')
+
+    if(!userId) {
+        history.push('/')
+    }
 
     useEffect(() => {
         getAllUsers()
@@ -28,6 +34,8 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
     useEffect(() => {
         getSavedHomes(id)
     }, [id])
+
+    
 
     return (
         <>
