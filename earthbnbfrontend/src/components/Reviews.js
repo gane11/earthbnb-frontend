@@ -42,7 +42,7 @@ const Reviews = ({homeId, reviews, getAllReviews, users}) => {
   }
 
   const handleClikc = () => {
-    setAddReview(true)
+    setAddReview(!addReview)
   }
 
   const onDelete = async (id) => {
@@ -101,7 +101,7 @@ useEffect(() => {
           )
         }})
         ) : (
-          <h2>No reviews (yet)</h2>
+          <h2 className="no-reviews">No reviews (yet)</h2>
         )}
         {/* <div>{reviewsObj.description}</div> */}
       </div>

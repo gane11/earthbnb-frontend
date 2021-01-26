@@ -26,7 +26,7 @@ const ProfileCard = ({ savedHome, homes, getAllHomes}) => {
              if(home.id === savedHome.homeId) {
                  return (
 
-            <NavLink to={`/homes/${home.id}`}>
+                     <NavLink to={`/homes/${home.id}`} style={{ textDecoration: 'none' }}>
                 <div className="profile-card">
                     <img src={home.image} alt=""></img>
                     <div className="profile-card__info">
@@ -37,7 +37,7 @@ const ProfileCard = ({ savedHome, homes, getAllHomes}) => {
                                   <h3> {`To: ${savedHome.endDate.split('T')[0]}`}</h3>
                     </div>
                     <div className="cancel-review__button">  
-                    <Button onClick={() => onDelete(savedHome.id)} variant="contained" color="secondary" size="large">
+                                 <Button onClick={() => onDelete(savedHome.id)} variant="contained" color="secondary" size="large" className="cancel-review__buttonn">
                         Cancel
                     </Button>
 

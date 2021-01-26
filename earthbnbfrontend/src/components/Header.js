@@ -13,6 +13,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import alexLogo from './images/alexbnblogo.png'
 import { getSearchValue } from '../store/actions/searchValueAction';
 import { getAllUsers } from "../store/actions/users"
+import alex from './images/0.jpg'
 
 
 
@@ -119,8 +120,16 @@ const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearc
       </div>
       {token 
         ? <div className='header__right'> 
-          <Link to={`/users/${userId + 1}`}>
-          <p className="welcome_letters" >{user? `Welcome   ${user.firstName}` : null} </p>
+          <Link to={`/users/${userId + 1}`} style={{ textDecoration: 'none' , marginRight: '20%'}}>
+            <div className="header-picture__container">
+            <div>
+              <p className="welcome_letters" >{user? `Welcome   ${user.firstName}` : null} </p>
+            </div>
+            <div className="header-picture__container2">
+              <img src={alex} className="header-picture " /> 
+            </div>
+
+            </div>
           </Link>
           <Button variant="contained" color="secondary"
             onClick={logOutButtonHandler}

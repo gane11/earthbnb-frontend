@@ -30,6 +30,7 @@
     padding: 20px;
     padding-top: 20px;
     border: 1;
+    text-decoration:none;
   }
 
   .profile-card__info > h2 {
@@ -49,4 +50,9 @@
 .cancel-review__button {
     margin-left: 75%;
     margin-top: -10%;
+    text-decoration: none;
+}
+
+.cancel-review__buttonn {
+  text-decoration: none;
 }
