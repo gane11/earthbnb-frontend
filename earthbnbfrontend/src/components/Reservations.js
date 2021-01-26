@@ -33,7 +33,7 @@ const Reservations = ({home}) =>{
         endDate,
       }
       dispatch(reserve(payload))
-      alert('Thanks!')
+      alert(`Thanks for reserving the ${home.name} !`)
       history.push(`/users/${userId}`)
 
     } else {

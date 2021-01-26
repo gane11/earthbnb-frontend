@@ -45,8 +45,8 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
             <div className="profile-picture__container">
             <img src={alex} className="profile-picture " /> 
             </div>  
+            <h1 className="reservation-header">Your Reservations:</h1>
             <div className="homes__container">
-                <h1>Your Reservations:</h1>
                 {empety ? (
                     <>
                     <div className="no-homes">
