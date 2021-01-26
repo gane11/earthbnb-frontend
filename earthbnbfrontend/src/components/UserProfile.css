@@ -37,6 +37,9 @@
 .homes__container {
    display: flex;
    justify-content: start;
+   flex-wrap: wrap;
+   overflow: hidden;
+
 }
 
 .reservation-header {
