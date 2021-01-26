@@ -15,6 +15,7 @@ import ShowAllHomes from './ShowAllHomes'
 import SearchResult from './SearchResults'
 import HomeDetailContainer from './HomeDetail';
 import UserProfile from './UserProfile'
+import My404Component from './My404Component'
 
 const App = ({needLogin, loadToken}) => {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,7 @@ const App = ({needLogin, loadToken}) => {
           exact path='/users/:id'
           component={UserProfile}
         />
+        <Route path='*' exact={true} component={My404Component} />
       </Switch>
     </BrowserRouter>
   )
