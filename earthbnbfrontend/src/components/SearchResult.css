@@ -48,8 +48,8 @@
 
 .searchResult__heart {
     position: absolute;
-    top: 20px;
-    right: 40px;
+    top: 0.5rem;
+    right: 0.2rem;
 }
 
 .searchResult__infoTop {

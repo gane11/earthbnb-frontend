@@ -39,6 +39,8 @@ import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 
 const StyledRating = withStyles({
@@ -56,7 +58,7 @@ export default function SimpleRating({homeId}) {
     return (
         <div>
             <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Rating</Typography>
+                {/* <Typography component="legend">Rating</Typography> */}
                 <StyledRating
                     color="secondary"
                     name={`home-${homeId}`}
@@ -64,6 +66,7 @@ export default function SimpleRating({homeId}) {
                     onChange={(event, newValue) => {
                         setValue(newValue);
                     }}
+                    icon={<FavoriteIcon/>}
                 />
             </Box>
         </div>
