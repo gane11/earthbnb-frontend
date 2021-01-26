@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './SearchResult.css';
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import StarIcon from "@material-ui/icons/Star";
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
 import Map from './Map'
@@ -13,8 +11,11 @@ import image from './images/miami-mansion-1.jpg'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Rating from './Rating'
 
+
+
 const SearchResult = ({home, getAllHomes}) =>{
   const [liked, setLiked] = useState(false)
+
 
   let searchValue = localStorage.getItem('searchValue')
   useEffect(() => {

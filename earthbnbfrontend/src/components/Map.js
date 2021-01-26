@@ -3,7 +3,7 @@ import React, { useState , useEffect} from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import {clearAllHomes} from '../store/reducers/homes'
 import './Map.css'
 
 const googleKey = process.env.REACT_APP_GOOGLE_KEY
@@ -15,10 +15,14 @@ const Map = ({ homes, getAllHomes, searchValue }) => {
   const [selectedHome, setSelectedHome] = useState(null)
   // let searchValue = localStorage.getItem('searchValue')
    
+  // useEffect(() => {
+  //   getAllHomes()
+  // }, [])
+
+
   useEffect(() => {
     getAllHomes()
   }, [])
-
 
 if(searchValue) {
 

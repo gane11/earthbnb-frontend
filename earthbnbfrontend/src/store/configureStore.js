@@ -7,11 +7,12 @@ import reviews from './reducers/reviews'
 import users from './reducers/users'
 import searchValue from './reducers/searchValueReducer'
 import createReview from './reducers/createReviewReducer'
+import savedHomes from './reducers/savedHomesReducer'
 
 
 const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const reducer = combineReducers({ authentication, homes, currentHome, reviews, users, searchValue, createReview});
+const reducer = combineReducers({ authentication, homes, currentHome, reviews, users, searchValue, createReview, savedHomes});
 
 const configureStore = (initialState) => {
   return createStore(

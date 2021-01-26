@@ -47,6 +47,7 @@ const Reservations = ({home}) =>{
   
   const updateNumPeople = (e) => {
     setNumPeople(e.target.value)
+    console.log(numPeople)
     setHomePrice(diffDays * home.price)
   }
 
@@ -64,11 +65,11 @@ const Reservations = ({home}) =>{
           <h3>Guests</h3>
         {/* <label for="num_guests">GUESTS</label> */}
         <select onChange={updateNumPeople} name="num_guests" id="num_guests">
-          <option value="num_1">1</option>
-          <option value="num_1">2</option>
-          <option value="num_1">3</option>
-          <option value="num_1">4</option>
-          <option value="num_1">5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
         <h3>Price: $ {homePrice}</h3>
         <Button type="submit" variant="contained" color="secondary"

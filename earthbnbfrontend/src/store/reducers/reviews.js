@@ -16,7 +16,6 @@ export default function reducer(state = {}, action) {
     }
 
     case DELETE_REVIEW: {
-      console.log('ALEX', action.id)
 
       delete state[action.id]
     }
