@@ -20,6 +20,7 @@ export default function App() {
     return (
         <div className="App">
             <DateRangePicker
+                required='true'
                 startDate={startDate}
                 startDateId="s_id"
                 endDate={endDate}

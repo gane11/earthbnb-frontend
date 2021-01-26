@@ -114,8 +114,8 @@ useEffect(() => {
       <div id="move-here">
     {addReview ? (
       <form onSubmit={addReviewButton}>
-      <div >
-          <textarea onChange={updateDescription} className="review-input"  cols="5" rows="5" maxlength="150"></textarea>
+            <div >
+          <textarea required onChange={updateDescription} className="review-input"  cols="5" rows="5" maxlength="150"></textarea>
         </div>
         <div className="button__container">
               <div className="cancel-button">

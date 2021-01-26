@@ -8,7 +8,6 @@ import Footer from './Footer'
 import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import Rating from './Rating'
 
 
@@ -60,7 +59,7 @@ const SearchResult = ({home, getAllHomes}) =>{
           </Link>
           <div className="searchResult__heart">
 
-            <Rating/>
+            <Rating homeId={home.id}/>
           </div>
             {/* <FavoriteBorderIcon className="searchResult__heart"  /> */}
         <div className='searchResult__info'>
