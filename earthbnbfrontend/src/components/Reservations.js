@@ -20,7 +20,7 @@ const Reservations = ({home}) =>{
   const [homePrice, setHomePrice] = useState(home.price)
   const [numPeople, setNumPeople] = useState(2)
   let homeId = home.id
-  let userId = 1
+  let userId = localStorage.getItem('userId')
 
   const handleSubmit = async (e) => {
     e.preventDefault()

@@ -119,7 +119,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearc
       </div>
       {token 
         ? <div className='header__right'> 
-          <Link to={`/users/${userId}`}>
+          <Link to={`/users/${userId + 1}`}>
           <p className="welcome_letters" >{user? `Welcome   ${user.firstName}` : null} </p>
           </Link>
           <Button variant="contained" color="secondary"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { getAllUsers } from "../store/actions/users"
@@ -11,20 +12,15 @@ import ProfileCard from './ProfileCard'
 
 
 const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
-
-    let userId = localStorage.getItem('userId') - 1
-    let user
-    if (users) {
-        user = users[userId]
-    }
+    const { id } = useParams();
 
     useEffect(() => {
         getAllUsers()
     }, [])
 
     useEffect(() => {
-        getSavedHomes(userId)
-    }, [userId])
+        getSavedHomes(id)
+    }, [id])
 
     return (
         <>
@@ -35,6 +31,14 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
             <img src={alex} className="profile-picture " /> 
             </div>  
             <div className="homes__container">
+                {!savedHomes ? (
+                    <div>
+                        You don't have any reservations yet
+                    </div>
+
+                ): (
+                    null
+                )}
                 {savedHomes.map((savedHome) => {
                     return (
                         <ProfileCard savedHome={savedHome}/>

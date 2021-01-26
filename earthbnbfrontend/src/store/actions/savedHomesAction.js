@@ -11,6 +11,7 @@ export const getSavedHomes = (id) => async (dispatch) => {
 
     if (response.ok) {
         const { savedHomes } = await response.json()
+        console.log(savedHomes, '!!!!!!!!!!!!!')
         dispatch(loadSavedHomes(savedHomes))
     }
 
