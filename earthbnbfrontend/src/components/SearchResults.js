@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import './SearchResult.css';
 import { getAllHomes } from '../store/actions/homes'
 import { useSelector, useDispatch } from 'react-redux';
 import Map from './Map'
 import Header from './Header'
 import Footer from './Footer'
-import { useHistory, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import image from './images/miami-mansion-1.jpg'
 import Rating from './Rating'
@@ -13,7 +12,6 @@ import Rating from './Rating'
 
 
 const SearchResult = ({home, getAllHomes}) =>{
-  const [liked, setLiked] = useState(false)
 
 
   let searchValue = localStorage.getItem('searchValue')
@@ -22,9 +20,6 @@ const SearchResult = ({home, getAllHomes}) =>{
   }, [])
 
 
-  const onClick = () => {
-    setLiked(!liked)
-  }
 
   let valid = false
 
@@ -50,7 +45,6 @@ const SearchResult = ({home, getAllHomes}) =>{
       <div className="search_container">
       <div className="search_results_container">
         {home.map((home) => {
-          console.log(home.city.toLowerCase())
           if(home.city.toLowerCase() === searchValue.toLowerCase()) {
         return (
         <div className='searchResult'>
