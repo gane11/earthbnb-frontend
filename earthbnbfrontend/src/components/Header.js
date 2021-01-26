@@ -81,6 +81,7 @@ const Header = ({ loginButtonHandler, signUpButtonHandler, searchValue, getSearc
     localStorage.setItem('searchValue', e.target.value)
   }
 
+
   const logOutButtonHandler = (e) => {
     e.preventDefault()
     dispatch(logout())

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory  } from 'react-router-dom';
 import { createUser } from '../store/actions/authentication'
+import { login } from '../store/actions/authentication'
 
 // material-ui
 
@@ -49,10 +50,16 @@ const LoginPanel = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('')
-
+  const history = useHistory()
   const dispatch = useDispatch()
 
   const token = useSelector(store => store.authentication.token)
+
+  const signInDemoUser = async (e) => {
+    e.preventDefault()
+    dispatch(login("demo@dftm.com", "demo123"))
+    history.push('/')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -87,6 +94,7 @@ const LoginPanel = (props) => {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                color="secondary"
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -102,6 +110,7 @@ const LoginPanel = (props) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+              color="secondary"
                 variant="outlined"
                 required
                 fullWidth
@@ -116,6 +125,7 @@ const LoginPanel = (props) => {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                color="secondary"
                 variant="outlined"
                 required
                 fullWidth
@@ -130,6 +140,7 @@ const LoginPanel = (props) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                color="secondary"
                   variant="outlined"
                   required
                   fullWidth
@@ -144,6 +155,7 @@ const LoginPanel = (props) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                color="secondary"
                   variant="outlined"
                   required
                   fullWidth
@@ -160,17 +172,29 @@ const LoginPanel = (props) => {
               </Grid>
             </Grid>
             <Button
+            color="secondary"
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              size="large"
               className={classes.submit}
             >
               Sign Up
             </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="secondary"
+            size="large"
+            className={classes.submit}
+            onClick={signInDemoUser}
+          >
+            Demo User
+          </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+              <Link href="/login" variant="body2" color="secondary">
                   Already have an account? Sign in
                 </Link>
               </Grid>

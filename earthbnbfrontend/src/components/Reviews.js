@@ -109,7 +109,7 @@ useEffect(() => {
     {addReview ? (
       <form onSubmit={addReviewButton}>
         <div>
-          <textarea onChange={updateDescription} className="review-input" wrap="off" cols="5" rows="5" maxlength="50"></textarea>
+          <textarea onChange={updateDescription} className="review-input"  cols="5" rows="5" maxlength="150"></textarea>
         </div>
         <div className="post-button">
           <Button type="submit" variant="contained" color="secondary"

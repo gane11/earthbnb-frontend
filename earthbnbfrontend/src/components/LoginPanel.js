@@ -54,6 +54,11 @@ const LoginPanel = (props)  => {
     e.preventDefault()
     dispatch(login(email,password))
   }
+
+  const signInDemoUser = async (e) => {
+    e.preventDefault()
+    dispatch(login("demo@dftm.com", "demo123"))
+  }
   
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -75,8 +80,8 @@ const LoginPanel = (props)  => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.paper}>
-          <LockOutlinedIcon />
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign In
@@ -84,6 +89,7 @@ const LoginPanel = (props)  => {
         <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
+            color="secondary"
             margin="normal"
             required
             fullWidth
@@ -97,6 +103,7 @@ const LoginPanel = (props)  => {
             onChange={updateEmail}
           />
           <TextField
+            color="secondary"
             variant="outlined"
             margin="normal"
             required
@@ -114,10 +121,21 @@ const LoginPanel = (props)  => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
+            size="large"
             className={classes.submit}
           >
             Sign In
+          </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={signInDemoUser}
+          >
+            Demo User
           </Button>
           <Grid container>
             <Grid item>
@@ -130,7 +148,7 @@ const LoginPanel = (props)  => {
                 onClick={handleClik}
                 > Sign Up
                 </Button> */}
-              <Link href="/sign-up" variant="body2">
+              <Link href="/sign-up" variant="body2" color="secondary">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

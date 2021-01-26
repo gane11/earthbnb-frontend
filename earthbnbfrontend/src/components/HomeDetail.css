@@ -71,8 +71,8 @@
     border: 0.2rem solid #ff7779;
      outline: none;
      resize: none;
-     text-indent: 1rem;
-
+     text-indent: 1.1rem;
+   word-wrap: break-word;
 
 }
 

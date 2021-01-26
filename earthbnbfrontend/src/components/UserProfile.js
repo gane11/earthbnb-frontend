@@ -18,6 +18,13 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
         getAllUsers()
     }, [])
 
+    let empety = false
+    if (savedHomes.length === 0) {
+        empety = true
+    }
+
+
+
     useEffect(() => {
         getSavedHomes(id)
     }, [id])
@@ -32,9 +39,7 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
             </div>  
             <div className="homes__container">
                 <h1>Your Reservations:</h1>
-                {savedHomes.length < 0 ? (
-                    null
-                ): (
+                {empety ? (
                     <>
                     <div className="no-homes">
                         <h1>{`You don't have any reservations yet :( `}</h1>
@@ -44,6 +49,8 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
                             <h1>{`Search for homes in Miami, San Francisco, New York, Los Angeles or Austin`}</h1>
                         </div>
                     </>
+                    ): (
+                        null
                 )}
                 {savedHomes.map((savedHome) => {
                     return (
