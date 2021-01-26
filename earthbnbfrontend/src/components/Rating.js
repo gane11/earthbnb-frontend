@@ -51,7 +51,7 @@ const StyledRating = withStyles({
 })(Rating);
 
 export default function SimpleRating({homeId}) {
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(4);
 
     return (
         <div>
