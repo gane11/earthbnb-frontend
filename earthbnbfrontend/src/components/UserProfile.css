@@ -25,9 +25,10 @@
 }
 
 .profile-picture {
-    height: 10rem;
+    height: 20rem;
     border-radius: 50%;
     z-index: 99;
-    margin-left: 20rem;
+    margin-left: 40%;
+    margin-top: 10%
 
 }

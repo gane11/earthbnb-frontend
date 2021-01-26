@@ -16,3 +16,26 @@ export const getSavedHomes = (id) => async (dispatch) => {
     }
 
 }
+
+export const deleteSavedHome = (id) => {
+    return async (dispatch) => {
+        try {
+            const res = await fetch(`${baseUrl}/reservations/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (res.ok) {
+                const data = await res.json()
+                return dispatch({
+                    type: DELETE_SAVED,
+                    id: data.id
+                })
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+}

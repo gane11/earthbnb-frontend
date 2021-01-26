@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import { getAllUsers } from "../store/actions/users"
 import { getSavedHomes } from "../store/actions/savedHomesAction"
 import './UserProfile.css'
-import alex from './images/alexbnblogo.png'
+import alex from './images/0.jpg'
 import ProfileCard from './ProfileCard'
 
 
@@ -31,6 +31,7 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
             <img src={alex} className="profile-picture " /> 
             </div>  
             <div className="homes__container">
+                <h1>Your Reservations:</h1>
                 {!savedHomes ? (
                     <div>
                         You don't have any reservations yet

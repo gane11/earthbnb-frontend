@@ -3,14 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import './ProfileCard.css'
 import { NavLink } from 'react-router-dom'
 import { getAllHomes } from '../store/actions/homes'
+import {deleteSavedHome} from '../store/actions/savedHomesAction'
 import Button from '@material-ui/core/Button';
 
 const ProfileCard = ({ savedHome, homes, getAllHomes}) => {
+    const dispatch = useDispatch()
     useEffect(() => {
         getAllHomes();
     }, [])
 
-    console.log(savedHome)
+    const onDelete = async (id) => {
+
+        await dispatch(deleteSavedHome(id))
+        alert('Reservation Successfully Canceled')
+    
+    };
 
 
     return (
@@ -30,7 +37,7 @@ const ProfileCard = ({ savedHome, homes, getAllHomes}) => {
                                   <h3> {`To: ${savedHome.endDate.split('T')[0]}`}</h3>
                     </div>
                     <div className="cancel-review__button">  
-                    <Button variant="contained" color="secondary" size="large">
+                    <Button onClick={() => onDelete(savedHome.id)} variant="contained" color="secondary" size="large">
                         Cancel
                     </Button>
 

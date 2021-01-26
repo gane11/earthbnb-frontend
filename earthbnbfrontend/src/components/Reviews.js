@@ -46,7 +46,6 @@ const Reviews = ({homeId, reviews, getAllReviews, users}) => {
   }
 
   const onDelete = async (id) => {
-    console.log(id)
     await dispatch(deleteReview(id))
     getAllReviews(homeId)
   };

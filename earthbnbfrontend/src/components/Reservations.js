@@ -34,6 +34,7 @@ const Reservations = ({home}) =>{
       }
       dispatch(reserve(payload))
       alert('Thanks!')
+      history.push(`/users/${userId}`)
 
     } else {
       history.push('/login')
