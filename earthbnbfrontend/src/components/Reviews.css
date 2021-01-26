@@ -41,3 +41,16 @@
 .no-reviews {
     color:#ff7779;
 }
+
+.post-button {
+
+}
+.cancel-button {
+   
+}
+
+.button__container {
+        display: flex;
+    justify-content: space-between;
+    width: 26rem;
+}

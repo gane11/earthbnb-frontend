@@ -22,6 +22,11 @@ const Reviews = ({homeId, reviews, getAllReviews, users}) => {
     setDescription(e.target.value)
   }
 
+  const handleCancel = (e) => {
+    e.preventDefault()
+    setAddReview(false)
+  }
+
   const addReviewButton = async (e) => {
 
     e.preventDefault()
@@ -62,6 +67,7 @@ useEffect(() => {
     <>
     <div className="add-review__button">
       <Button
+        href="#move-here"
         onClick={handleClikc}
         fullWidth
         variant="contained"
@@ -105,15 +111,22 @@ useEffect(() => {
         )}
         {/* <div>{reviewsObj.description}</div> */}
       </div>
-  <div>
+      <div id="move-here">
     {addReview ? (
       <form onSubmit={addReviewButton}>
-        <div>
+      <div >
           <textarea onChange={updateDescription} className="review-input"  cols="5" rows="5" maxlength="150"></textarea>
         </div>
+        <div className="button__container">
+              <div className="cancel-button">
+                <Button variant="contained" color="secondary" onClick={handleCancel}
+                >X</Button>
+              </div>
         <div className="post-button">
           <Button type="submit" variant="contained" color="secondary"
           >Post</Button>
+        </div>
+
         </div>
       </form>
     ) : (
