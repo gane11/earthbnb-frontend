@@ -28,16 +28,19 @@ export default function Footer() {
     <div style={{ width: '100%' }}>
       <Box display="flex" p={1} bgcolor="background.paper">
         <Box p={1} width="100%" bgcolor="grey.50">
-          <p>Airbnb clone by Aleksandar Dordevic</p>
+          <a className="link"href="https://gane11.github.io/Aleksandar-Dordevic/">
+          <p className="my-name">Created by Aleksandar Dordevic</p>
+
+          </a>
         </Box>
         <Box p={1} flexShrink={1} bgcolor="grey.50">
           <a href="https://www.linkedin.com/in/aleksandar-dordevic-418a39b5/">
-            <LinkedInIcon fontSize="large"/>
+            <LinkedInIcon color="secondary" style={{ fontSize: 65 }}/>
           </a>
         </Box>
         <Box p={1} flexShrink={0} bgcolor="grey.50">
           <a href="https://github.com/gane11">
-            <GitHubIcon fontSize="large"/>
+            <GitHubIcon color="secondary" style={{ fontSize: 60 }} />
            </a>
         </Box>
       </Box>
