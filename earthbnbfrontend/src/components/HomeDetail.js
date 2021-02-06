@@ -117,7 +117,6 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
     <HomeDetailMap newLat={home.lat} newLng={home.lng}/>
   </div>
   </div>
-<Footer />
 </>
   )
 }

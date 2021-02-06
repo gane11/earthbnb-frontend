@@ -16,6 +16,7 @@ import SearchResult from './SearchResults'
 import HomeDetailContainer from './HomeDetail';
 import UserProfile from './UserProfile'
 import My404Component from './My404Component'
+import Footer from './Footer'
 
 const App = ({needLogin, loadToken}) => {
   const [loaded, setLoaded] = useState(false);
@@ -51,9 +52,10 @@ const App = ({needLogin, loadToken}) => {
         <Route exact path='/'
         component={Home}
         />
-        <Route exact path='/homes/:id'
-          component={HomeDetailContainer}
-        />
+        <Route exact path='/homes/:id'>
+          <HomeDetailContainer/>
+          <Footer />
+        </Route>
         <Route
           path='/login'
           component={LoginPanel}
