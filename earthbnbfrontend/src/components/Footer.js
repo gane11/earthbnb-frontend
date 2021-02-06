@@ -26,7 +26,7 @@ import Box from '@material-ui/core/Box';
 export default function Footer() {
   return (
     // <div className='footer'>
-      <div className='footer'style={{ width: '100%' }}>
+      <footer className="footer">
       <Box display="flex" p={1} bgcolor="background.paper">
         <Box p={1} width="100%" bgcolor="grey.50">
           <a className="link"href="https://gane11.github.io/Aleksandar-Dordevic/">
@@ -45,7 +45,7 @@ export default function Footer() {
            </a>
         </Box>
       </Box>
-    </div>
+    </footer>
     // </div>
   );
 }

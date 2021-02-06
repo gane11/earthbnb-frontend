@@ -53,6 +53,7 @@ const App = ({needLogin, loadToken}) => {
         component={Home}
         />
         <Route exact path='/homes/:id'>
+          <Header />
           <HomeDetailContainer/>
           <Footer />
         </Route>

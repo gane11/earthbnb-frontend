@@ -15,13 +15,13 @@
   transform: scale(1.2);
 }   */
 .home-detail__container {
-  height: 100%;
+
 }
 .reservation_box_container {
       grid-column: 3 / 4;
-    height: 335px;
+    height: 2rem;
     position: sticky;
-    top: 30px;
+    top: 1rem;
     padding: 25px;
      box-shadow: 10px;
     border-radius: 15px;
@@ -76,4 +76,10 @@
      text-indent: 1.1rem;
    word-wrap: break-word;
 
+}
+
+
+
+.home-detail__map{
+  
 }
