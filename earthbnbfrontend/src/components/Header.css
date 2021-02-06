@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: sticky; */
-  position: relative;
+  position: sticky;
+  /* position: relative; */
   top: 0;
   background-color: white;
   /* z-index: 100; */
   width: 100%;
+  z-index: 999;
 }
 
 .header__icon {

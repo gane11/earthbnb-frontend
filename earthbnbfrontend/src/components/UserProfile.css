@@ -2,6 +2,7 @@
    background-color: white;
    display: grid;
    grid-template-columns: minmax(0, 1fr) 85rem minmax(0, 1fr);  
+   height: 100%;
    
 
 }
@@ -12,6 +13,7 @@
    background-color: #fff;
    grid-column: 2 / span 1;
    width: 85rem;
+   
 }
 
 
@@ -41,6 +43,7 @@
    flex-wrap: wrap;
    overflow: hidden;
 
+
 }
 
 .reservation-header {
@@ -50,6 +53,7 @@
 .no-homes {
    padding-left:20%;
    padding-top: 5%;
+   
 }
 
 .no-homes > h1 {

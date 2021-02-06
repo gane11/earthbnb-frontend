@@ -74,9 +74,12 @@ const App = ({needLogin, loadToken}) => {
           component={SearchResult}
         />
         <Route 
-          exact path='/users/:id'
-          component={UserProfile}
-        />
+          exact path='/users/:id' >
+            <Header />
+            <UserProfile />
+            <Footer/>
+          </Route>
+
         <Route path='*' exact={true} component={My404Component} />
       </Switch>
     </BrowserRouter>

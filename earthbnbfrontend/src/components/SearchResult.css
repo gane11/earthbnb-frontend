@@ -37,6 +37,7 @@
        height: 13rem;
     width: 23rem;
     border-radius: 10px;
+     box-shadow: 1px 0 4px rgba(0,2,4,.055), 0 4px 15px rgba(1,1,1,.5);
 
 }
 .searchResult__info {
@@ -95,3 +96,7 @@
     right: 30px;
 }
 
+.search-results__header {
+    position: sticky;
+    z-index: 999;
+}

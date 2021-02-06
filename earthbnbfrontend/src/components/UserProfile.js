@@ -38,8 +38,6 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
     
 
     return (
-        <>
-        <Header/>
         <div className="profile-main">
         <div className="user-profile__container">
             <div className="profile-picture__container">
@@ -68,8 +66,6 @@ const UserProfile = ({users, getAllUsers, savedHomes, getSavedHomes}) => {
             </div>          
         </div>
             </div>
-        <Footer/>
-        </>
     )
 
 }

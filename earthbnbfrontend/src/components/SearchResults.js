@@ -41,6 +41,7 @@ const SearchResult = ({home, getAllHomes}) =>{
    }
   return (
     <>
+
     <Header />
       <div className="search_container">
       <div className="search_results_container">
@@ -78,7 +79,8 @@ const SearchResult = ({home, getAllHomes}) =>{
           <Map searchValue={searchValue}/>
         </div>
       </div>
-      <div className="footer__container">
+      <div className="search-result__footer">
+
    <Footer />
       </div>
    </>
