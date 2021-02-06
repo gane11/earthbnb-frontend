@@ -4,6 +4,8 @@
     background-color: #f7f7f7;
     text-align: center;
     z-index: 999;
+       position: fixed;
+    bottom: 0;
 }
 
 .footer > p {
@@ -23,3 +25,4 @@
 .link {
      text-decoration: none;
 }
+

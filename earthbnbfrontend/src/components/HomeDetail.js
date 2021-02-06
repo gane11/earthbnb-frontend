@@ -68,6 +68,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
   return (
     <>
     <Header />
+    <div className="home-detail__container">
     <h1>{home.name}</h1>
     <p>{`${home.city}, ${home.state}`}</p>
       <div className={classes.root}>
@@ -114,6 +115,7 @@ const HomeDetail = ({home, getOneHome, users, getAllUsers}) => {
   </div>
   <div>
     <HomeDetailMap newLat={home.lat} newLng={home.lng}/>
+  </div>
   </div>
 <Footer />
 </>
