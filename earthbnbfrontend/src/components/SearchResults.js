@@ -56,7 +56,6 @@ const SearchResult = ({home, getAllHomes}) =>{
 
             <Rating homeId={home.id}/>
           </div>
-            {/* <FavoriteBorderIcon className="searchResult__heart"  /> */}
         <div className='searchResult__info'>
           <div className="searchResult__infoTop">
            <p>{home.city}</p>
